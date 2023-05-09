@@ -11,52 +11,75 @@
 <body>
 
 <div id="div1">
-<table>
-<tr>
-  <td style="text-align: right;">
-    <label for="numStations">number of stations:</label>
-    <input type="button" value="-" id="removeStationButton" onclick="removeStation()" />
-    <input id="numOfStations" name="numOfStations" size="2" type="text" value="5" style="text-align: center;color:red" disabled/>
-    <input type="button" value="+" onclick="addStation()" id="addStationButton" />
-  </td>
-  <td style="text-align: right;"><input type="button" value="refresh n.ofSt" onclick="refreshNumStations()"/></td>
-  <td></td>
-  <td>
-
-  </td>
-</tr>
-<tr>
-  <td>
-    
-  </td>
-  <td>
-    <div id="timesDiv" style="text-align: right;">
-      <label id="1timel" for="1time">1-2 time:</label>
-      <input id="1time" name="1time" size="4" type="text" value="21" /><br id="1timebr"/>
-      <label id="2timel" for="2time">2-3 time:</label>
-      <input id="2time" name="2time" size="4" type="text" value="17" /><br id="2timebr"/>
-      <label id="3timel" for="3time">3-4 time:</label>
-      <input id="3time" name="3time" size="4" type="text" value="40" /><br id="3timebr"/>
-      <label id="4timel" for="4time">4-5 time:</label>
-      <input id="4time" name="4time" size="4" type="text" value="70" /><br id="4timebr"/>
-    </div>
-  </td>
-  <td style="text-align: center;">
-    <br/>
-    <label for="stopLen">default stop time:</label><br><input id="stopLen" name="stopLen" size="1" type="text" value="6" />
-    <br /><br />
-    <label for="numIterations">num.iterations:</label><br />
-    <input type="button" value="-" id="iterationSubstractButton" onclick="iterationSubstract()" />
-    <input id="numIterations" name="numIterations" size="4" type="text" value="1" style="text-align: center" />
-    <input type="button" value="+" id="iterationAddButton" onclick="iterationAdd()" /><br />
-    <label for="circularCheckBox">circular line:</label><input type="checkbox" name="circularCheckBox" id="circularCheckBox" onchange="checkCircular(this)" ><br><br>
-    <input type="button" value="build graph" onclick="initFormData(true)"/>
-  </td>
-  <td style="text-align: right;"></td>
-</tr>
-</table>
+  <fieldset id="linesorderfield" style="text-align:center; display:none;">
+    <legend>Lines order:</legend>
+    <input type="button" value="<==" id="shiftleftLine0btn" onclick="shiftleftLine(this.id)" style="display:none;"  />
+    <input id="Line0orderplaceh" size="5" type="text" value="Line A" style="text-align: center;color:yellow" disabled/>
+    <input type="button" value="==>" onclick="shiftrightLine(this.id)" id="shiftrightLine0btn" />
+  </fieldset>
+  <table style="width:100%; margin-left: auto; margin-right: auto;">
+    <tr>
+      <td style="width: 33%;"></td>
+      <td style="width: 20%;" id="linestd">
+        <fieldset id="lineField0" style="text-align: right;">
+          <legend>Line A:</legend>
+          <div id="timesDiv0">
+            <label id="1timel0" for="1time0">1-2 time:</label>
+            <input id="1time0" name="1time0" size="4" type="text" value="21" /><br id="1timebr0"/>
+            <label id="2timel0" for="2time0">2-3 time:</label>
+            <input id="2time0" name="2time0" size="4" type="text" value="17" /><br id="2timebr0"/>
+            <label id="3timel0" for="3time0">3-4 time:</label>
+            <input id="3time0" name="3time0" size="4" type="text" value="40" /><br id="3timebr0"/>
+            <label id="4timel0" for="4time0">4-5 time:</label>
+            <input id="4time0" name="4time0" size="4" type="text" value="70" /><br id="4timebr0"/>
+          </div>   
+          <fieldset id="0params" style="text-align: right;">
+            <legend>Line A parameters:</legend>
+              <label for="circularCheckBox0">circular line:</label><input type="checkbox" name="circularCheckBox0" id="circularCheckBox0" onchange="checkCircular(this)" ><br>
+              <center>
+                <label for="numStations0">number of stations:</label><br>
+                <input type="button" value="-" id="removeStationButton0" onclick="removeStation(this.id)" />
+                <input id="numOfStations0" name="numOfStations0" size="2" type="text" value="5" style="text-align: center;color:red" disabled/>
+                <input type="button" value="+" onclick="addStation(this.id)" id="addStationButton0" />
+                <fieldset id="stationsincommonfield0">
+                  <legend>Shared stations:</legend>
+                  <label id="1incommonlbl0">Station 1</label>
+                  <input type="checkbox" id="1incommonchkbox0" data-station="1" data-line="0" onchange="sharedchkbox(this)"><br id="1incommonbr0">
+                  <label id="2incommonlbl0">Station 2</label>
+                  <input type="checkbox" id="2incommonchkbox0" data-station="2" data-line="0" onchange="sharedchkbox(this)"><br id="2incommonbr0">
+                  <label id="3incommonlbl0">Station 3</label>
+                  <input type="checkbox" id="3incommonchkbox0" data-station="3" data-line="0" onchange="sharedchkbox(this)"><br id="3incommonbr0">
+                  <label id="4incommonlbl0">Station 4</label>
+                  <input type="checkbox" id="4incommonchkbox0" data-station="4" data-line="0" onchange="sharedchkbox(this)"><br id="4incommonbr0">
+                  <label id="5incommonlbl0">Station 5</label>
+                  <input type="checkbox" id="5incommonchkbox0" data-station="5" data-line="0" onchange="sharedchkbox(this)"><br id="5incommonbr0">
+                </fieldset>
+              </center>
+          </fieldset>
+        </fieldset>
+        <center id="addLineBtnCenter"><input type="button" value="Add Line" onclick="addLine()" id="addLineButton" /></center>
+      </td>
+      <td style="width: 33%; vertical-align: top;" id="sharedstationstd">
+        <br><br><br><br>
+        <fieldset id="sharedstationsfield">
+          <legend>Shared stations:</legend>
+        </fieldset>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><center>
+        <label for="stopLen">default stop time:</label><input id="stopLen" name="stopLen" size="1" type="text" value="6" /><br>
+        <label for="numIterations">num.iterations:</label>
+        <input id="numIterations" name="numIterations" size="4" type="text" value="1" style="text-align: center" /><br><br>
+        <input type="button" value="build graph" onclick="initFormData(true)"/>
+        <input type="button" value="debug" onclick="debugg()"/>
+        </center>
+      </td>
+    </tr>
+  </table>
 </div>
-
 
 <div id="div2">
 
@@ -114,12 +137,21 @@
           </fieldset>
           
           <fieldset>
+            <legend>line:</legend>
+            <select id="newTrainLineSelect" onclick="updateNewTrainStationsList(this.value)">
+              <option id="newTrainLine0option" value="0">A</option>
+            </select>
+          </fieldset>
+          
+          <fieldset>
             <legend>Start from:</legend>
-            Station:
-            <select id="newTrainStartStationSelect">
-              <option id="newTrainStartStation1option" value="1">1</option>
-              <option id="newTrainStartStation2option" value="2">2</option>
-            </select><br>
+            <div id="newTrainStartStationDiv">
+              Station:
+              <select id="newTrainStartStationSelect">
+                <option id="newTrainStartStation1option" value="1">1</option>
+                <option id="newTrainStartStation2option" value="2">2</option>
+              </select><br>
+            </div>
             Time:<input type="text" value="0" id="newTrainStartTime" size="4" style="text-align: center">
           </fieldset>
           <center>
