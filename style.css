@@ -1,0 +1,71 @@
+body {color: white; background: black;}
+
+#container {
+    position: relative;            
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#sidNavLeft {
+    position: fixed;
+    width: 250px;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
+}
+
+#sidNavRight {
+    right: 0;
+    position: fixed;
+    width: 250px;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
+}
+
+#leftMenuBtn{
+    width: 25px;
+    height: 25px;
+    background: #202020;
+    text-align: center;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    border-radius: 3px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#rightMenuBtn{
+    width: 25px;
+    height: 25px;
+    background: #202020;
+    text-align: center;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    border-radius: 3px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#niterationsdiv{
+  margin-left: 0;
+  margin-right: auto;
+  position: relative;
+  width: 170px;
+  text-align: center;
+}
+
+#addTraindiv{
+  margin-left: auto;
+  margin-right: 0;
+  position: relative;
+  width: 150px;
+}
+
+#graphcontrol{
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+}

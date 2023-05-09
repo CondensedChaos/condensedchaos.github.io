@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Marey Chart Creator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-latest.min.js"></script>
+  <script src="jquery.mousewheel.js"></script>
+  <script src="highcharts.js"></script>
+
+</head>
+<body>
+
+<div id="div1">
+<table>
+<tr>
+  <td style="text-align: right;">
+    <label for="numStations">number of stations:</label>
+    <input type="button" value="-" id="removeStationButton" onclick="removeStation()" />
+    <input id="numOfStations" name="numOfStations" size="2" type="text" value="5" style="text-align: center;color:red" disabled/>
+    <input type="button" value="+" onclick="addStation()" id="addStationButton" />
+  </td>
+  <td style="text-align: right;"><input type="button" value="refresh n.ofSt" onclick="refreshNumStations()"/></td>
+  <td></td>
+  <td>
+
+  </td>
+</tr>
+<tr>
+  <td>
+    
+  </td>
+  <td>
+    <div id="timesDiv" style="text-align: right;">
+      <label id="1timel" for="1time">1-2 time:</label>
+      <input id="1time" name="1time" size="4" type="text" value="21" /><br id="1timebr"/>
+      <label id="2timel" for="2time">2-3 time:</label>
+      <input id="2time" name="2time" size="4" type="text" value="17" /><br id="2timebr"/>
+      <label id="3timel" for="3time">3-4 time:</label>
+      <input id="3time" name="3time" size="4" type="text" value="40" /><br id="3timebr"/>
+      <label id="4timel" for="4time">4-5 time:</label>
+      <input id="4time" name="4time" size="4" type="text" value="70" /><br id="4timebr"/>
+    </div>
+  </td>
+  <td style="text-align: center;">
+    <br/>
+    <label for="stopLen">default stop time:</label><br><input id="stopLen" name="stopLen" size="1" type="text" value="6" />
+    <br /><br />
+    <label for="numIterations">num.iterations:</label><br />
+    <input type="button" value="-" id="iterationSubstractButton" onclick="iterationSubstract()" />
+    <input id="numIterations" name="numIterations" size="4" type="text" value="1" style="text-align: center" />
+    <input type="button" value="+" id="iterationAddButton" onclick="iterationAdd()" /><br />
+    <label for="circularCheckBox">circular line:</label><input type="checkbox" name="circularCheckBox" id="circularCheckBox" onchange="checkCircular(this)" ><br><br>
+    <input type="button" value="build graph" onclick="initFormData(true)"/>
+  </td>
+  <td style="text-align: right;"></td>
+</tr>
+</table>
+</div>
+
+
+<div id="div2">
+
+  <div id="sidNavLeft">
+    <nav>
+      <table id="trainsETable">
+        <tr id="train1Erow">
+          <td id="train1ECol">
+        
+          </td>
+        </tr>
+      </table>
+    </nav>
+  </div>
+
+  <div id="sidNavRight">
+    <nav>
+      <table id="trainsWTable">
+        <tr id="train1Wrow">
+          <td id="train1WCol">
+        
+          </td>
+       </tr>
+     </table>
+    </nav>
+  </div>
+  
+  <div id="leftMenuBtn">
+     <!-- <img src="images/menu.PNG" id="menu">--> 
+     &#62;
+  </div>
+  <div id="rightMenuBtn">
+     <!-- <img src="images/menu.PNG" id="menu">--> 
+     &#60;
+  </div>
+  
+  <div id="container"></div>
+  
+  <table id="graphcontrol" style="width:100%">
+    <tr>
+      <td style="width: 259px; vertical-align:top"><div id = "niterationsdiv">
+    <fieldset>
+    <legend>Number of iterations:</legend> <input id="iteration1SubstractButton" type="button" value="-"  onclick="changeIterationsNum(this.id)" /> <input id="numIterations1" style="text-align: center;color:red" name="numIterations1" size="4" type="text" value="1" /> <input id="iteration1AddButton" type="button" value="+" onclick="changeIterationsNum(this.id)" /></fieldset>
+  </div></td>
+      <td></td>
+      <td><div id="addTraindiv">
+     <fieldset>
+          <legend>Add a train:</legend>
+          <fieldset>
+            <legend>direction:</legend>
+              <input type="radio" id="E" value="E" name="newTraindirection"  checked>
+              <label for="E">East</label><br>
+              <input type="radio" id="W" value="W" name="newTraindirection">
+              <label for="W">West</label>
+          </fieldset>
+          
+          <fieldset>
+            <legend>Start from:</legend>
+            Station:
+            <select id="newTrainStartStationSelect">
+              <option id="newTrainStartStation1option" value="1">1</option>
+              <option id="newTrainStartStation2option" value="2">2</option>
+            </select><br>
+            Time:<input type="text" value="0" id="newTrainStartTime" size="4" style="text-align: center">
+          </fieldset>
+          <center>
+            <input type="button" value="Add" id="newTrainButton" onclick="addTrain()">
+          </center>
+        </fieldset>
+     </div></td>
+    </tr>
+  </table>
+
+
+</div>
+   
+   
+   
+</body>
+<script src="marey.js"></script>
+</html>
