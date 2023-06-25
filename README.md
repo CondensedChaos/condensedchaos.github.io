@@ -41,6 +41,8 @@ Work in progress!
 
 
 ---
+## Credits
+
 Made using [HighCharts](https://github.com/highcharts/highcharts) javascript library.
 As per Highcharts license any derivative work/fork has to repsect the following:
 1) The Highcharts watermark must remain.
