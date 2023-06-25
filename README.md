@@ -32,6 +32,8 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 
 [How is a Time-Space Diagram is used in trasportation](https://en.wikipedia.org/wiki/Time%E2%80%93distance_diagram)
 
+[Historical Infographics: From Paris with Love (interesting article about Marey Charts and its history)](https://sandrarendgen.wordpress.com/2019/03/15/data-trails-from-paris-with-love/)
+
 ---
 
 ## How to use
