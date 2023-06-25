@@ -2,7 +2,7 @@
 Made as a complement of: [Starbound Rail Train Mod](https://github.com/CondensedChaos/Starbound-Rail-Train)
 
 But can be used as a Marey chart generator, just note that all times are expressed in seconds.
-Anyone can make a derivative work of this and turn it into a life-size Marey chart creator eventually.
+Anyone can make a derivative work of this web-app and turn it into a life-size Marey chart creator eventually.
 
 ## What is a Marey chart?
 A Marey chart is a [time-space diagram](https://en.wikipedia.org/wiki/Time%E2%80%93distance_diagram), a kind of [cartesian](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) [diagram](https://en.wikipedia.org/wiki/Diagram) used to analyze the flow of transportation system.
