@@ -1,9 +1,9 @@
-### Starbound Rail Train System - Marey Graph generator Web App
+# Starbound Rail Train System - Marey Graph generator Web App
 
 ##-= How to use: coming soon! =-
 
 ---
-##What is a Marey chart?
+###What is a Marey chart?
 
 A Marey chart is a [time-space diagram](https://en.wikipedia.org/wiki/Time%E2%80%93distance_diagram), a kind of [cartesian](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) [diagram](https://en.wikipedia.org/wiki/Diagram) used to analyze the flow of transportation system.
 Time is plotted on the x asis, usually drawn at the top and stations are plotted on the y-axis, proportionally spaced by the physical distance between each station.
