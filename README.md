@@ -18,7 +18,6 @@ Invented in 1847 and still used today to plan transportations network capacity a
 
 
 I reccomend watching this awesome [video](https://www.youtube.com/watch?v=NFLb1IPlY_k) about Marey graphs made by YouTube Channel [Numberphile](https://www.youtube.com/channel/UCoxcjq-8xIDTYp3uz647V5A), narrated by Professor [Hannah Fry](https://en.wikipedia.org/wiki/Hannah_Fry)
-
 watching this same video sparked the inspiration in me to build this mod and webapp.
 
 
