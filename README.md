@@ -1,6 +1,6 @@
 ### Starbound Rail Train System - Marey Graph generator Web App
 
--= WORK IN PROGRESS! =-
+##-= How to use: coming soon! =-
 
 ---
 Made using [HighCharts](https://github.com/highcharts/highcharts) javascript library.
