@@ -44,6 +44,8 @@ trainsData[0] = [] //east trains array
 trainsData[1] = [] //west trains array
 trainsData[0][0] = null
 trainsData[1][0] = null
+var recurringdata = []
+var sumoftimesarray = []
 var options = {
     chart: {
       renderTo: "container",
@@ -130,7 +132,7 @@ var options = {
     result = result.sort((a,b)=>a-b)
     xaxisticks = [...new Set(result)];
     result = []
-    //console.log(xaxisticks)
+    
     for(let i=1;i<=xaxisticks.length; i++){
       //if(i<(xaxisticks.length -1)){
         if(Math.abs(xaxisticks[i-1] - xaxisticks[i]) >6 ){
@@ -138,7 +140,7 @@ var options = {
         }
       //}
     }
-    //console.log(result)
+    
     
     //result = xaxisticks
     return result;
@@ -185,10 +187,10 @@ window.onload = function () {
  document.getElementById("stationsincommonfield0").style.display = "none"
  document.getElementById("sharedstationsfield").style.display = "none"
  
- console.log(sharedStationsTable)
  
- console.log("LINE0=",line0) 
- console.log("line n.",((new Error().lineNumber) - line0))
+ 
+  
+ 
  
  //document.getElementById("numOfStations").addEventListener('change', refreshNumStations);
  //let hideButton1 = document.getElementById("iterationAddButton");
@@ -201,8 +203,8 @@ window.onload = function () {
  
  let circularCheckBox = document.getElementById("circularCheckBox0");
  circular = circularCheckBox.checked;
- console.log("circular=",circular)
- console.log("numLines",numLines,"numCircLines",numCircLines,"numNonCircLines",numNonCircLines)
+ 
+ 
  
  if(circular===true){
    //oldnumOfStations = oldnumOfStations + 1
@@ -335,10 +337,10 @@ function changeStopLen(elemId){
   let elemStation = Number(elem.dataset.station)
   let elemMethod = elem.dataset.method
   
-  console.log("======CHANGE STOP LEN".concat("train Num.",elemTrainNum," Dir:",elemDirection," Station:",elemStation," stop change method:",elemMethod))
+  
   
   let stopLenTxTid = "".concat("train",elemTrainNum,elemDirection,"station",elemStation,"stopValue")
-  console.log(stopLenTxTid)
+  
   
   let stopLenTxT = document.getElementById(stopLenTxTid)
   
@@ -350,7 +352,7 @@ function changeStopLen(elemId){
     stopLen = trainsData[1][elemTrainNum][5][elemStation]
   }
   
-  console.log("========OLD STOP LEN=",stopLen)
+  
   
   //let stopLen = stopLenTxT.value
   
@@ -362,7 +364,7 @@ function changeStopLen(elemId){
     }
   }
   
-  console.log("========NEW STOP LEN=",stopLen)
+  
   
   stopLenTxT.innerHTML = "".concat(" ",stopLen," ")
   //trainsData[dir][trainNum] = [direction,seriesIndex,startStation,startTime ,speeds[], stoplenghts[], seriesData[], line]
@@ -376,7 +378,7 @@ function changeStopLen(elemId){
   let circular
   
   if(elemDirection == "E"){
-    console.log("==============EAST")
+    
     trainLine = trainsData[0][elemTrainNum][7]
     numOfStations = numStations[trainLine]
     circular = circ[trainLine]
@@ -391,7 +393,7 @@ function changeStopLen(elemId){
       trainsData[0][elemTrainNum][5][elemStation] = stopLen
     }
   }else if(elemDirection == "W"){
-    console.log("==============WEST")
+    
     trainLine = trainsData[1][elemTrainNum][7]
     numOfStations = numStations[trainLine]
     circular = circ[trainLine]
@@ -407,10 +409,398 @@ function changeStopLen(elemId){
     }
   }
   
-  console.log("EAST trains data",trainsData[0][elemTrainNum])
-  console.log("WEST trains data",trainsData[1][elemTrainNum])
+  
+  
   
   redraw(elemTrainNum,elemDirection)
+  
+}
+
+function recurringtrainsexecute(){
+  //numberOfTrainsE = 0
+  //numberOfTrainsW = 0
+  //numberOfSeries = 0
+  //nextSerie = 0
+  //trainsData[0] = [] //east trains array
+  //trainsData[1] = [] //west trains array
+  //trainsData[0][0] = null
+  //trainsData[1][0] = null
+  
+  //deleteTrain(elemId, recurring, tnum, dire)
+  
+  //if(numberOfTrainsE >=1){
+    //for(let t=1;t<=numberOfTrainsE;t++){
+      //deleteTrain(null, true, t, "E")
+    //}
+  //}
+  //if(numberOfTrainsW >=1){
+    //for(let t=1;t<=numberOfTrainsW;t++){
+      //deleteTrain(null, true, t, "W")
+    //}
+  //}
+  //trainsData[dir][trainNum] = [direction,seriesIndex,startStation,startTime ,speeds[], stoplenghts[], seriesData[], line]
+  //recurringdata[line] = [recurringTimeEast, recurringTimeWest, notrainsEast. notrainsWest, linksliders, startE, startW]
+  
+  //options.series = []
+  
+  //lines[n] = [numTrainsE,numTrainsW,numTrains]
+  //lines[0] = [1,1,2]
+  
+  
+  
+  numberOfTrainsE = 0
+  numberOfTrainsW = 0
+  numberOfSeries = 0
+  nextSerie = 0
+  trainsData = []
+  trainsData[0] = [] //east trains array
+  trainsData[1] = [] //west trains array
+  trainsData[0][0] = null
+  trainsData[1][0] = null
+  options.series = []
+  
+  
+  
+  
+  
+  //numLines = 1
+  
+  let recurringnumtrainsE = []
+  let recurringnumtrainsW = []
+  
+  for(let l=0;l<numLines;l++){
+    lines[l] = [0,0,0]
+    recurringnumtrainsE[l] = Math.trunc((sumoftimesarray[l] - recurringdata[l][5])/recurringdata[l][0])
+    recurringnumtrainsW[l] = Math.trunc((sumoftimesarray[l] - recurringdata[l][6])/recurringdata[l][1])
+  }
+  
+  
+  
+  let trainsEtable = document.getElementById("trainsETable")
+  let trainsWtable = document.getElementById("trainsWTable")
+  let sidnavleft = document.getElementById("sidNavLeftchild")
+  let sidnavright = document.getElementById("sidNavRightchild")
+  
+  sidnavleft.removeChild(trainsEtable)
+  sidnavright.removeChild(trainsWtable)
+  trainsEtable = null
+  trainsWtable = null
+  trainsEtable = Object.assign(document.createElement("table"),{id:"trainsETable"})
+  trainsWtable = Object.assign(document.createElement("table"),{id:"trainsWTable"})
+  let Etr = Object.assign(document.createElement("tr"),{id:"train1Erow"})
+  let Wtr = Object.assign(document.createElement("tr"),{id:"train1Wrow"})
+  let Etd = Object.assign(document.createElement("td"),{id:"train1ECol"})
+  let Wtd = Object.assign(document.createElement("td"),{id:"train1WCol"})
+  
+  Etr.appendChild(Etd)
+  trainsEtable.appendChild(Etr)
+  sidnavleft.appendChild(trainsEtable)
+  
+  Wtr.appendChild(Wtd)
+  trainsWtable.appendChild(Wtr)
+  sidnavright.appendChild(trainsWtable)
+    
+  //addStationsToTable(trainNum, startStation, direction, startTime, appendToExisingTable)
+  //addStationsToTable(1,1,"E",0,false,l)
+  //addStationsToTable(1,1,"W",0,false,l)
+  
+  //addTrain(recurring, tline, dire, startt, starts )
+  for(let l=0;l<numLines;l++){
+    let recurrsecondsE = recurringdata[l][0]
+    let recurrsecondsW = recurringdata[l][0]
+    let disableeast = recurringdata[l][2]
+    let disablewest = recurringdata[l][3]
+    let linksliders = recurringdata[l][4]
+    if(disableeast === true){
+      if(disablewest === false){
+        
+        //addStationsToTable(1,1,"W",recurringdata[l][6],false,l)
+        addTrain(true, l, "W", recurringdata[l][6], 1 )
+        for(let t=1;t<recurringnumtrainsW[l];t++){
+          addTrain(true, l, "W", recurringdata[l][6] + (t*recurrsecondsW), 1 )
+        }
+      }
+    }else if(disablewest === true){
+      if(disableeast === false){
+        
+        //addStationsToTable(1,1,"E",recurringdata[l][5],false,l)
+        addTrain(true, l, "E", recurringdata[l][5], 1 )
+        for(let t=1;t<recurringnumtrainsE[l];t++){
+          addTrain(true, l, "E", recurringdata[l][5] + (t*recurrsecondsE), 1 )
+        }
+      }
+    }else if(disableeast === true){
+      if(disablewest === true){
+        
+        return
+      }
+    }else if(linksliders===true){ //we verified that both W and E are more than 0 at this time, linksliders===true so they MUST be equal at this time we can reasonably assume
+      
+      ////addStationsToTable(trainNum, startStation, direction, startTime, appendToExisingTable)
+      //addStationsToTable(1,1,"E",recurringdata[l][5],false,l)
+      //addStationsToTable(1,1,"W",recurringdata[l][6],false,l)
+      addTrain(true, l, "E", recurringdata[l][5], 1 )
+      addTrain(true, l, "W", recurringdata[l][6], 1 )
+      for(let t=1;t<recurringnumtrainsE[l];t++){
+        addTrain(true, l, "E", recurringdata[l][5] + (t*recurrsecondsE), 1 )
+        addTrain(true, l, "W", recurringdata[l][6] + (t*recurrsecondsW), 1 )
+      }
+    }else{ //sliders are not linked, recurring times might be different but trains numbers COULD be or not be equal but we verified that both trains numbers of E and W are more than 0 
+      if(recurringnumtrainsE[l] == recurringnumtrainsW[l]){
+        
+        //addStationsToTable(1,1,"E",recurringdata[l][5],false,l)
+        //addStationsToTable(1,1,"W",recurringdata[l][6],false,l)
+        addTrain(true, l, "E", recurringdata[l][5], 1 )
+        addTrain(true, l, "W", recurringdata[l][6], 1 )
+        for(let t=1;t<recurringnumtrainsE[l];t++){
+          addTrain(true, l, "E", recurringdata[l][5] + (t*recurrsecondsE), 1 )
+          addTrain(true, l, "W", recurringdata[l][6] + (t*recurrsecondsW), 1 )
+        }
+      }else if(recurringnumtrainsE[l] > recurringnumtrainsW[l]){
+        
+        //addStationsToTable(1,1,"E",recurringdata[l][5],false,l)
+        //addStationsToTable(1,1,"W",recurringdata[l][6],false,l)
+        addTrain(true, l, "E", recurringdata[l][5], 1 )
+        addTrain(true, l, "W", recurringdata[l][6], 1 )
+        for(let t=1;t<recurringnumtrainsW[l];t++){
+          addTrain(true, l, "E", recurringdata[l][5] + (t*recurrsecondsE), 1 )
+          addTrain(true, l, "W", recurringdata[l][6] + (t*recurrsecondsW), 1 )
+        }
+        for(let t=(recurringnumtrainsW[l]);t<recurringnumtrainsE[l];t++){
+          addTrain(true, l, "E", recurringdata[l][5] + (t*recurrsecondsE), 1 )
+        }
+      }else if(recurringnumtrainsW[l] > recurringnumtrainsE[l] ){
+        
+        //addStationsToTable(1,1,"E",recurringdata[l][5],false,l)
+        //addStationsToTable(1,1,"W",recurringdata[l][6],false,l)
+        addTrain(true, l, "E", recurringdata[l][5], 1 )
+        addTrain(true, l, "W", recurringdata[l][6], 1 )
+        for(let t=1;t<recurringnumtrainsE[l];t++){
+          addTrain(true, l, "E", recurringdata[l][5] + (t*recurrsecondsE), 1 )
+          addTrain(true, l, "W", recurringdata[l][6] + (t*recurrsecondsW), 1 )
+        }
+        for(let t=(recurringnumtrainsE[l]);t<recurringnumtrainsW[l];t++){
+          addTrain(true, l, "W", recurringdata[l][6] + (t*recurrsecondsW), 1 )
+        }
+      }
+    }
+    
+  }
+  
+}
+
+function disablerecurring(elem){
+  let elemId = document.getElementById(elem)
+  let line = Number(elemId.dataset.line)
+  let direction = elemId.dataset.direction
+  
+  let numtrainslblE = document.getElementById("recnumtrainsE" + String(line))
+  let numtrainslblW = document.getElementById("recnumtrainsW" + String(line))
+  
+  //[recurringTimeEast, recurringTimeWest, notrainsEast. notrainsWest, linksliders, startE, startW]
+  if(direction==="E"){
+    if(recurringdata[line][2] === true){
+      recurringdata[line][2] = false
+      numtrainslblE.innerText = String(Math.trunc((sumoftimesarray[line] - recurringdata[line][5])/recurringdata[line][0])) + " Trains"
+    }else{
+      recurringdata[line][2] = true
+      numtrainslblE.innerText = "0 Trains"
+    }
+  }else{
+    if(recurringdata[line][3] === true){
+      recurringdata[line][3] = false
+      numtrainslblW.innerText = String(Math.trunc((sumoftimesarray[line] - recurringdata[line][6])/recurringdata[line][1])) + " Trains"
+    }else{
+      recurringdata[line][3] = true
+      numtrainslblW.innerText = "0 Trains"
+    }
+  }
+  
+}
+
+function linkrecurring(elem){
+  let elemId = document.getElementById(elem)
+  let line = Number(elemId.dataset.line)
+  
+  let sliderE = document.getElementById("recurringtrainsliderE" + String(line))
+  let sliderW = document.getElementById("recurringtrainsliderW" + String(line))
+  let labelE = document.getElementById("recurringtrainsLabelValueE" + String(line))
+  let labelW = document.getElementById("recurringtrainsLabelValueW" + String(line))
+
+  let numtrainslblE = document.getElementById("recnumtrainsE" + String(line))
+  let numtrainslblW = document.getElementById("recnumtrainsW" + String(line))
+  
+  if(recurringdata[line][4] === true){
+    recurringdata[line][4] = false
+    
+    let newmaxE = sumoftimesarray[line] - recurringdata[line][5]
+    let newmaxW = sumoftimesarray[line] - recurringdata[line][6]
+    sliderE.max = newmaxE
+    sliderW.max = newmaxW
+  }else{
+    recurringdata[line][4] = true
+    let newmaxE = sumoftimesarray[line] - recurringdata[line][5]
+    sliderW.value = sliderE.value
+    sliderW.max = newmaxE
+    labelW.innerText = labelE.innerText
+    recurringdata[line][1] =  recurringdata[line][0]
+    
+  }
+  
+  if(recurringdata[line][2] === false){
+      numtrainslblE.innerText = String(Math.trunc((sumoftimesarray[line] - recurringdata[line][5])/recurringdata[line][0])) + " Trains"
+    }else{
+      numtrainslblE.innerText = "0 Trains"
+    }
+    if(recurringdata[line][3] === false){
+      numtrainslblW.innerText = String(Math.trunc((sumoftimesarray[line] - recurringdata[line][6])/recurringdata[line][1])) + " Trains"
+    }else{
+      numtrainslblW.innerText = "0 Trains"
+    }
+  
+  
+}
+
+function recurringtrainsstartslider(elem){
+  let elemId = document.getElementById(elem)
+  let line = Number(elemId.dataset.line)
+  let direction = elemId.dataset.direction
+  let start = Number(elemId.value)
+  
+  let numtrainslblE = document.getElementById("recnumtrainsE" + String(line))
+  let numtrainslblW = document.getElementById("recnumtrainsW" + String(line))
+  
+  let labelE = document.getElementById("recurringtrainsstartlblE" + String(line))
+  let labelW = document.getElementById("recurringtrainsstartlblW" + String(line))
+  
+  let sliderE = document.getElementById("recurringtrainsliderE" + String(line))
+  let sliderW = document.getElementById("recurringtrainsliderW" + String(line))
+  let newmax = sumoftimesarray[line] - start
+  let numtrains
+  
+  //sumoftimesarray[line]
+  
+  //[recurringTimeEast, recurringTimeWest, notrainsEast. notrainsWest, linksliders, startE,startW]
+  if(direction==="E"){
+    recurringdata[line][5] = start
+    labelE.innerText = String(start) + " seconds"
+    
+    if(sliderE.value > newmax){
+      sliderE.value = newmax
+      recurringdata[line][0] = newmax
+      let lblE = document.getElementById("recurringtrainsLabelValueE" + String(line))
+      lblE.innerText = String(newmax) + " seconds"
+      if (recurringdata[line][4] == true){
+        recurringdata[line][1] = newmax
+        let lblW = document.getElementById("recurringtrainsLabelValueW" + String(line))
+        lblW.innerText = String(newmax) + " seconds"
+      }
+    }
+    numtrains = Math.trunc((sumoftimesarray[line] - recurringdata[line][5])/recurringdata[line][0])
+    
+    if(recurringdata[line][2] === false){
+      numtrainslblE.innerText = String(numtrains) + " Trains"
+    }else{
+      numtrainslblE.innerText = "0 Trains"
+    }
+    sliderE.max = newmax
+    if (recurringdata[line][4] == true){
+      sliderW.max = newmax
+    }
+  }else{
+    recurringdata[line][6] = start
+    labelW.innerText = String(start) + " seconds"
+    
+    if(sliderW.value > newmax){
+      sliderW.value = newmax
+      recurringdata[line][1] = newmax
+      let lblW = document.getElementById("recurringtrainsLabelValueW" + String(line))
+      lblW.innerText = String(newmax) + " seconds"
+      if (recurringdata[line][4] == true){
+        recurringdata[line][0] = newmax
+        let lblE = document.getElementById("recurringtrainsLabelValueE" + String(line))
+        lblE.innerText = String(newmax) + " seconds"
+      }
+    }
+    numtrains = Math.trunc((sumoftimesarray[line] - recurringdata[line][6])/recurringdata[line][1])
+    if(recurringdata[line][3] === false){
+      numtrainslblW.innerText = String(numtrains) + " Trains"
+    }else{
+      numtrainslblW.innerText = "0 Trains"
+    }
+    sliderW.max = newmax
+    if (recurringdata[line][4] == true){
+      sliderE.max = newmax
+    }
+  }
+  
+}
+
+function recurringtrainsslider(elem){
+  let elemId = document.getElementById(elem)
+  let recurrseconds = Number(elemId.value)
+  let line = Number(elemId.dataset.line)
+  let direction = elemId.dataset.direction
+  
+  let labelE = document.getElementById("recurringtrainsLabelValueE" + String(line))
+  let labelW = document.getElementById("recurringtrainsLabelValueW" + String(line))
+  
+  let numtrainslblE = document.getElementById("recnumtrainsE" + String(line))
+  let numtrainslblW = document.getElementById("recnumtrainsW" + String(line))
+  
+  let numtrains
+  if(direction==="E"){
+    numtrains = Math.trunc((sumoftimesarray[line] - recurringdata[line][5])/recurrseconds)
+  }else{
+    numtrains = Math.trunc((sumoftimesarray[line] - recurringdata[line][6])/recurrseconds)
+  }
+    
+  //[recurringTimeEast, recurringTimeWest, notrainsEast. notrainsWest, linksliders, startE,startW]
+  if (recurringdata[line][4] == true){
+    labelE.innerText = String(recurrseconds) + " seconds"
+    labelW.innerText = String(recurrseconds) + " seconds"
+    if(recurringdata[line][2] === false){
+      numtrainslblE.innerText = String(numtrains) + " Trains"
+    }else{
+      numtrainslblE.innerText = "0 Trains"
+    }
+    if(recurringdata[line][3] === false){
+      numtrainslblW.innerText = String(numtrains) + " Trains"
+    }else{
+      numtrainslblW.innerText = "0 Trains"
+    }
+    
+    
+    if(direction==="E"){
+      let otherslider = document.getElementById("recurringtrainsliderW" + String(line))
+      otherslider.value = recurrseconds
+    }else{
+      let otherslider = document.getElementById("recurringtrainsliderE" + String(line))
+      otherslider.value = recurrseconds
+    }
+    recurringdata[line][0] = Number(recurrseconds)
+    recurringdata[line][1] = Number(recurrseconds)
+  }else{
+    if(direction==="E"){
+      labelE.innerText = String(recurrseconds) + " seconds"
+      if(recurringdata[line][2] === false){
+        numtrainslblE.innerText = String(numtrains) + " Trains"
+      }else{
+        numtrainslblE.innerText = "0 Trains"
+      }
+      recurringdata[line][0] = Number(recurrseconds)
+    }else{
+      labelW.innerText = String(recurrseconds) + " seconds"
+      if(recurringdata[line][3] === false){
+        numtrainslblW.innerText = String(numtrains) + " Trains"
+      }else{
+        numtrainslblW.innerText = "0 Trains"
+      }
+      recurringdata[line][1] = Number(recurrseconds)
+    }
+  }
+  
+  
   
 }
 
@@ -423,7 +813,7 @@ function changeTrainSpeed(elemId){
   let elemStation = Number(elem.dataset.station)
   let newSpeed = Number(elem.value)
   
-  //console.log("".concat("train Num.",elemTrainNum," Dir:",elemDirection," Station:",elemStation," New Speed:",newSpeed))
+  
   
   let labelId = "".concat("train",elemTrainNum,elemDirection,"station",elemStation,"speedLabelValue")
   document.getElementById(labelId).innerText = "".concat(newSpeed,"%")
@@ -440,7 +830,7 @@ function changeTrainSpeed(elemId){
   
   if(elemDirection == "E"){
     trainsData[0][elemTrainNum][4][elemStation] = newSpeed
-    //console.log(trainsData[0][elemTrainNum])      
+          
   }else if(elemDirection == "W"){
     trainLine = trainsData[1][elemTrainNum][7]
     numOfStations = numStations[trainLine]
@@ -464,7 +854,7 @@ function changeTrainSpeed(elemId){
 
 function addStation(btnid){
   let trainLine = btnid.replace("addStationButton","");
-  console.log("numstationtxtfiled id =","numOfStations" + trainLine)
+  
   //let numOfStations = Number(document.getElementById("numOfStations" + trainLine).value) + 1
   let numOfStations = numStations[trainLine]
   let circular = circ[trainLine]
@@ -491,11 +881,11 @@ function addStation(btnid){
   }
   document.getElementById("".concat("numOfStations",trainLine)).value = numOfStations
   numStations[trainLine] = numOfStations
-  console.log("oldnumStations[trainLine]=",oldnumStations[trainLine]," numOfStations[trainLine]=",numStations[trainLine])
+  
   
   const timesDiv = document.getElementById("".concat("timesDiv",trainLine));
   for (let i = oldnumStations[trainLine]; i < numOfStations; i++){
-    console.log("i=",i)
+    
     let newTimeTxt = document.createElement("label");
     let timeTxtLabel
     if (i=== oldnumStations[trainLine]){
@@ -518,7 +908,7 @@ function addStation(btnid){
     timesDiv.appendChild(newtxtField);
     brElement = document.createElement("br")
     brElement.id = "".concat(i,"timebr",trainLine)
-    console.log(brElement.id)
+    
     timesDiv.appendChild(brElement)
   }
   oldnumStations[trainLine] = numOfStations
@@ -552,10 +942,10 @@ function removeStation(btnid){
   numStations[trainLine] = numOfStations
   
   if( ((numOfStations<3) && (circular===false)) || ((numOfStations<4) && (circular===true)) ){
-    console.log("================RETURN, numOfStations=",numOfStations," oldnumStations=",oldnumStations[trainLine])
+    
     return;
   }
-  console.log("oldnumStations[trainLine]=",oldnumStations[trainLine]," numStations[trainLine]=",numStations[trainLine])
+  
   
   const timesDiv = document.getElementById("".concat("timesDiv",trainLine));
   
@@ -574,25 +964,25 @@ function removeStation(btnid){
   }
   
   let brElementId= "".concat((numOfStations),"timebr",trainLine);
-  console.log(brElementId)
+  
   let brElement = document.getElementById(brElementId);
   brElement.remove();
   
   oldnumStations[trainLine] = numOfStations;
-  console.log("oldnumStations[trainLine]=",oldnumStations[trainLine]," numStations=",numStations[trainLine])
+  
 }
 
 function checkCircular(checkbox){
   let chkboxId = checkbox.id
   let trainLine = chkboxId.replace("circularCheckBox","");
-  console.log("checkCircular(checkbox) chkboxId=",chkboxId,"trainLine=",trainLine)
+  
   let newcircular = checkbox.checked;
   let numOfStations
   if (newcircular===true){
    numOfStations = numStations[trainLine] + 1
    numStations[trainLine] = numOfStations
    oldnumStations[trainLine] = numOfStations
-   console.log("oldnumStations[trainLine]=",oldnumStations[trainLine]," numStations[trainLine]=",numStations[trainLine])
+   
    //const timesDivId = "timesDiv" + trainLine
    const timesDiv = document.getElementById("timesDiv" + trainLine);
    let newTimeTxt = document.createElement("label");
@@ -603,7 +993,7 @@ function checkCircular(checkbox){
    newtxtField = document.createElement("input");
    newtxtField.type = "text"
    newtxtField.id = ''.concat( (numOfStations-1) ,"time",trainLine)
-   console.log("id=",newtxtField.id)
+   
    newtxtField.size = "4"
    timesDiv.appendChild(newtxtField);
    brElement = document.createElement("br")
@@ -614,7 +1004,7 @@ function checkCircular(checkbox){
     numOfStations = numStations[trainLine] - 1
     numStations[trainLine] = numOfStations
     circ[trainLine] = newcircular
-    console.log("oldnumStations[trainLine]=",oldnumStations[trainLine]," numStations[trainLine]=",numOfStations[trainLine])
+    
     
     const timesDiv = document.getElementById("".concat("timesDiv",trainLine));
     let lastTimeIdLabel = ''.concat((numOfStations),"timel",trainLine);
@@ -627,7 +1017,7 @@ function checkCircular(checkbox){
     brElement.remove();
     oldnumStations[trainLine] = numOfStations
   }
-  console.log("circular=",circ[trainLine])
+  
 }
 
 function changeStartTime(event){
@@ -730,13 +1120,13 @@ function addLine(){
   linesorderfield.appendChild(lineorderplaceh)
   linesorderfield.appendChild(shiftrightbtn)
   linesorder.push(newLine)
-  console.log("linesorder",linesorder)
+  
   
   lines[newLine] = [1,1,2]
   numStations[newLine] = 2
   oldnumStations[newLine] = 2
   sharedStationsTable[newLine] = {numshared:0,sharedlist:[]}
-  console.log(sharedStationsTable)
+  
   circ[newLine] = false
   
   if(newLine === 1){
@@ -863,12 +1253,12 @@ function sharedchkbox(checkbox){
   //let chkboxId = checkbox.id
   let trainLine = Number(checkbox.dataset.line)
   let station = Number(checkbox.dataset.station)
-  console.log("sharedchkbox() trainLine=",trainLine,"station",station,"value=",checkbox.checked )
+  
   if(checkbox.checked===true){
     sharedStations++
     sharedStationsTable[trainLine].numshared = sharedStationsTable[trainLine].numshared + 1
     sharedStationsTable[trainLine].sharedlist.push({number:station,equivalent:[]})
-    console.log(sharedStationsTable)
+    
     let sharedstationsfield = document.getElementById("sharedstationsfield")
     let newElem = document.createElement("fieldset")
     newElem.id = trainLine + "sharedstationfield" + station
@@ -883,14 +1273,14 @@ function sharedchkbox(checkbox){
       sharedstationsfield.style.display = "block"
     }
     for(let l=0; l<numLines; l++){
-      console.log("line",l)
+      
       for(let s=0;s<sharedStationsTable[l].numshared;s++){
-        //console.log("line",l,"st",s,"is shared")
+        
         let line = l
         let sstation = sharedStationsTable[l].sharedlist[s].number
-        //console.log("line",l,"entry",s,"=",sharedStationsTable[l].sharedlist[s].number,"==>",sstation + numToLetter(l))
+        
         let stfield = document.getElementById(l + "sharedstationfield" + sstation)
-        console.log("id of field is", l + "sharedstationfield" + sstation)
+        
         for(let ll=0; ll<numLines; ll++){
           for(let ss=0;ss<sharedStationsTable[ll].numshared;ss++){
             if(ll!=l){
@@ -898,7 +1288,7 @@ function sharedchkbox(checkbox){
               let childst = sharedStationsTable[ll].sharedlist[ss].number
               
               if(document.getElementById("l" + line + "st" + sstation + "sharedstationlbl"  + childline + "st" + childst)==null){
-                console.log("putting",childst + numToLetter(childline),"in",sstation + numToLetter(l))
+                
 
                 let newlbl = document.createElement("label")
                 newlbl.id = "l" + line + "st" + sstation + "sharedstationlbl"  + childline + "st" + childst
@@ -913,12 +1303,12 @@ function sharedchkbox(checkbox){
                 newchkbox.dataset.stationtoshare = childst
                 newchkbox.dataset.lineshare = childline
                 
-                //console.log("===============NUMSHARED=",sharedStationsTable[ll].numshared)
+                
                 //let numshared = sharedStationsTable[ll].numshared
                 //if(numshared%6==0){
                   //let newbr = document.createElement("br")
                   //newbr.id = line + "st" + sstation + "sharedstationbr" + (numshared / 6)
-                  //console.log("============br created=",newbr.id)
+                  
                   //stfield.appendChild(newbr)
                 //}
                 
@@ -933,7 +1323,7 @@ function sharedchkbox(checkbox){
   }else{
     for(let s=0;s<sharedStationsTable[trainLine].numshared;s++){
       if(sharedStationsTable[trainLine].sharedlist[s].number == station){
-        console.log("found=",sharedStationsTable[trainLine].sharedlist[s].number)
+        
         //.splice(trainNum,1)
         let datacopy = sharedStationsTable[trainLine].sharedlist
         datacopy.splice(s,1)
@@ -945,7 +1335,7 @@ function sharedchkbox(checkbox){
     fieldtodelete.remove()
     sharedStations--
     sharedStationsTable[trainLine].numshared = sharedStationsTable[trainLine].numshared - 1
-    console.log(sharedStationsTable)
+    
     if (sharedStations<2){
       sharedstationsfield.style.display = "none"
     }
@@ -955,7 +1345,7 @@ function sharedchkbox(checkbox){
         let line = l
         let sstation = sharedStationsTable[l].sharedlist[s].number
         if(l!=trainLine){
-          console.log("station to remove",station + numToLetter(trainLine)," in fieldset ",sstation+ numToLetter(line))
+          
           let lbl = document.getElementById("l" + line + "st" + sstation + "sharedstationlbl"  + trainLine + "st" + station)
           if(lbl!=null){
             lbl.remove()
@@ -980,12 +1370,12 @@ function sharedchkboxset(checkbox){
   let station = Number(checkbox.dataset.station)
   let stationtoshare = Number(checkbox.dataset.stationtoshare)
   let linetoshare = Number(checkbox.dataset.lineshare)
-  console.log("sharedchkbox() trainLine=",trainLine,"station",station,"stationtoshare",stationtoshare,"linetoshare",linetoshare,"value=",checkbox.checked )
-  console.log("SHAREDTABLE",sharedStationsTable)
+  
+  
   if(checkbox.checked===true){
     for(let s=0;s<sharedStationsTable[trainLine].numshared;s++){
       if(sharedStationsTable[trainLine].sharedlist[s].number == station){
-        console.log("found(1)=",sharedStationsTable[trainLine].sharedlist[s])
+        
         sharedStationsTable[trainLine].sharedlist[s].equivalent.push({line:linetoshare,station:stationtoshare})
         break
       }
@@ -995,16 +1385,16 @@ function sharedchkboxset(checkbox){
     othercheckbox.checked = true
     for(let s=0;s<sharedStationsTable[linetoshare].numshared;s++){
       if(sharedStationsTable[linetoshare].sharedlist[s].number == stationtoshare){
-        console.log("found(2)=",sharedStationsTable[linetoshare].sharedlist[s])
+        
         sharedStationsTable[linetoshare].sharedlist[s].equivalent.push({line:trainLine,station:station})
         break
       }
     }
-    console.log(sharedStationsTable)
+    
   }else{
     for(let s=0;s<sharedStationsTable[trainLine].numshared;s++){
       if(sharedStationsTable[trainLine].sharedlist[s].number == station){
-        console.log("found(1)=",sharedStationsTable[trainLine].sharedlist[s])
+        
         let datacopy = sharedStationsTable[trainLine].sharedlist[s].equivalent
         datacopy.splice(s,1)
         sharedStationsTable[trainLine].sharedlist[s].equivalent = datacopy
@@ -1015,14 +1405,14 @@ function sharedchkboxset(checkbox){
     othercheckbox.checked = false
     for(let s=0;s<sharedStationsTable[linetoshare].numshared;s++){
       if(sharedStationsTable[linetoshare].sharedlist[s].number == stationtoshare){
-        console.log("found(2)=",sharedStationsTable[linetoshare].sharedlist[s])
+        
         let datacopy = sharedStationsTable[linetoshare].sharedlist[s].equivalent
         datacopy.splice(s,1)
         sharedStationsTable[linetoshare].sharedlist[s].equivalent = datacopy
         break
       }
     }
-    console.log(sharedStationsTable)
+    
   }
 }
 
@@ -1035,10 +1425,10 @@ function calculateCumulativeDist(){
   
   /////////////////////////////////////////////////////////////////
   let numOfStations
-  console.log("numLines",numLines)
+  
   for(let l=0; l<numLines; l++){
     numOfStations = numStations[l]
-    console.log("numOfStations",numOfStations)
+    
     timeArrayEast[l] = []
     timeArrayEast[l][0] = null
     for (let i = 1; i < numOfStations; i++) {
@@ -1046,7 +1436,7 @@ function calculateCumulativeDist(){
       timeArrayEast[l][i] = Number(document.getElementById(txtFieldId).value)
     }
       
-    console.log("timeArrayEast",timeArrayEast)
+    
     
     distArray[l] = []
     distArray[l][0] = null
@@ -1054,7 +1444,7 @@ function calculateCumulativeDist(){
       //let txtFieldId = ''.concat(i,"size")
       distArray[l][i] = timeArrayEast[l][i]  //Number(document.getElementById(txtFieldId).value)
     }
-    console.log("distArray",distArray)
+    
     }
   ////////////////////////////////////////////////////////////////
   
@@ -1065,17 +1455,17 @@ function calculateCumulativeDist(){
   
   cumulativeDistEast[0][0] = 0
   for (let s = 1; s < numStations[0]; s++) {
-      //console.log("loop A s=" ,s,"cumulativeDistEast[firstline][s-1]",cumulativeDistEast[firstline][s-1], "distArray[firstline][s]",distArray[firstline][s])
+      
     cumulativeDistEast[0][s] = cumulativeDistEast[0][s-1] + distArray[0][s]
   }
-  console.log("cumulativeDistEast",cumulativeDistEast)
+  
   
   //we should also consider that lines don't share stations and implement the distance between lines dialog
   
   for(let o=1; o<numLines; o++){
     let currline = linesorder[o]
     let prevline = linesorder[o-1]
-    console.log("o=",o,"currline",currline,"prevline",prevline)
+    
     //we assume the first station shared of the following lines is the station number 1
     let found
     let candidates = []
@@ -1084,7 +1474,7 @@ function calculateCumulativeDist(){
     let found2
     for(let s=0;s<sharedStationsTable[currline].numshared;s++){
         if(sharedStationsTable[currline].sharedlist[s].number == 1){
-          console.log("found=",sharedStationsTable[currline].sharedlist[s])
+          
           found = sharedStationsTable[currline].sharedlist[s].equivalent
           break
         }
@@ -1097,12 +1487,12 @@ function calculateCumulativeDist(){
         //so we should stop here?!
       }
     }
-    console.log("candidates",candidates)
+    
     for(let i=0;i<candidates.length;i++){
       for(let s=0;s<sharedStationsTable[prevline].numshared;s++){
-        console.log("i",i,"s",s)
+        
         let prevlineeq = sharedStationsTable[prevline].sharedlist[s].number
-        console.log("prevlineeq,candidates[i]",prevlineeq,candidates[i])
+        
         if(prevlineeq == candidates[i]){
           equivalents.push([1,prevlineeq])
           //all of this assuming more stations of prev line are equivalent to station 1 of currline
@@ -1117,16 +1507,16 @@ function calculateCumulativeDist(){
         }
       }
     }
-    console.log("equivalents",equivalents)
+    
     let offset = cumulativeDistEast[prevline][equivalents[0][1]-1]
-    console.log("offset",offset)
+    
     cumulativeDistEast[o] = []
     cumulativeDistEast[o][0] = offset
     for (let s = 1; s < numOfStations; s++) {
       cumulativeDistEast[o][s] = cumulativeDistEast[o][s-1] + distArray[o][s]
     }
     
-    console.log("cumulativeDistEast",cumulativeDistEast)
+    
 
   }
   //cumulativeDistEast[l] = []
@@ -1149,8 +1539,8 @@ function calculateCumulativeDist(){
       timeArrayWest[l][i+1] = timeArrayEast[l][arrayLen-i]
     }
       
-    console.log("cumulativeDistWest",cumulativeDistWest)
-    console.log("timeArrayWest",timeArrayWest)
+    
+    
   }
   
 }
@@ -1161,6 +1551,7 @@ function initFormData(firstTime){
     numIterations = Number(document.getElementById("numIterations").value)
     stopLen = Number(document.getElementById("stopLen").value)
     calculateCumulativeDist()
+    
     for(let l=0; l<numLines; l++){
     
       //var cumulativeDistEast= [ null,
@@ -1173,7 +1564,262 @@ function initFormData(firstTime){
       
       numOfStations = numStations[l]
       
+      let recurringfieldset = document.getElementById("recurringtrainsfieldset")
+      
+      if(l==0){
+        for(let ll=0; ll<numLines; ll++){
+          recurringdata[ll] = [10,10,false,false,true, 0, 0]
+          //[recurringTimeEast, recurringTimeWest, notrainsEast. notrainsWest, linksliders, startE,startW]
+        }
+      }
+      
+      if (l > 0){
+        let newlinefield = document.createElement("fieldset")
+        newlinefield.id = "recurringfield" + String(l)
+        newlinefield.innerHTML = "One train every:"
+        let newlinelegend = document.createElement("legend")
+        newlinelegend.innerHTML = "Line " + numToLetter(l) + ":"
+        
+        let newlineeast = document.createElement("fieldset")
+        let newlineeastlegend = document.createElement("legend")
+        newlineeastlegend.innerHTML = "East:"
+        
+        let numtrainsElbl = document.createElement("label")
+        numtrainsElbl.id = "recnumtrainsE" + String(l)
+        let numtrainsEbr = document.createElement("br")
+        let hrE = document.createElement("hr")
+        hrE.class = "dashed"
+        
+        let sliderstartlblE = document.createElement("label")
+        sliderstartlblE.innerHTML = "Starting from:"
+        let everylblbrE1 = document.createElement("br")
+        let sliderstartE = document.createElement("input")
+        sliderstartE.id = "recurringtrainsstartsliderE" + String(l)
+        sliderstartE.max = "15"
+        sliderstartE.min = "0"
+        sliderstartE.type = "range"
+        sliderstartE.value = "0"
+        sliderstartE.dataset.line = l
+        sliderstartE.dataset.direction = "E"
+        sliderstartE.oninput = function(){recurringtrainsstartslider(this.id)}
+        let startsliderlblE = document.createElement("label")
+        startsliderlblE.id = "recurringtrainsstartlblE" + String(l)
+        startsliderlblE.innerHTML = "0 seconds"
+        let everylblbrE2 = document.createElement("br")
+        let everylblE = document.createElement("label")
+        everylblE.innerHTML = "Every:"
+        let everylblbrE3 = document.createElement("br")
+        
+        let eastslider = document.createElement("input")
+        eastslider.id = "recurringtrainsliderE" + String(l)
+        eastslider.max = "15"
+        eastslider.min = "10"
+        eastslider.type = "range"
+        eastslider.value = "10"
+        eastslider.dataset.line = l
+        eastslider.dataset.direction = "E"
+        eastslider.oninput = function(){recurringtrainsslider(this.id)}
+        let sliderlbl = document.createElement("label")
+        sliderlbl.id = "recurringtrainsLabelValueE" + String(l)
+        sliderlbl.for = eastslider.id
+        sliderlbl.innerHTML = "10 seconds"
+        let newbr = document.createElement("br")
+        let disablerecurringlbl = document.createElement("label")
+        disablerecurringlbl.for = "disablerecurringlblE" + String(l)
+        disablerecurringlbl.innerHTML = "no trains going to east"
+        let disablerecurringchck = document.createElement("input")
+        disablerecurringchck.id = "disablerecurringE" + String(l)
+        disablerecurringchck.type = "checkbox"
+        disablerecurringchck.name = disablerecurringchck.id
+        disablerecurringchck.dataset.line = l
+        disablerecurringchck.dataset.direction = "E"
+        disablerecurringchck.onchange = function(){disablerecurring(this.id)}
+        
+        newlineeast.appendChild(newlineeastlegend)
+        
+        newlineeast.appendChild(numtrainsElbl)
+        newlineeast.appendChild(numtrainsEbr)
+        newlineeast.appendChild(hrE)
+        
+        newlineeast.appendChild(sliderstartlblE)
+        newlineeast.appendChild(everylblbrE1)
+        newlineeast.appendChild(sliderstartE)
+        newlineeast.appendChild(startsliderlblE)
+        newlineeast.appendChild(everylblbrE2)
+        newlineeast.appendChild(everylblE)
+        newlineeast.appendChild(everylblbrE3)
+        
+        newlineeast.appendChild(eastslider)
+        newlineeast.appendChild(sliderlbl)
+        newlineeast.appendChild(newbr)
+        newlineeast.appendChild(disablerecurringlbl)
+        newlineeast.appendChild(disablerecurringchck)
+        
+        newlinefield.appendChild(newlinelegend)
+        
+        newlinefield.appendChild(newlineeast)
+        
+        let newlinewest = document.createElement("fieldset")
+        let newlinewestlegend = document.createElement("legend")
+        newlinewestlegend.innerHTML = "West:"
+        
+        let numtrainsWlbl = document.createElement("label")
+        numtrainsWlbl.id = "recnumtrainsW" + String(l)
+        let numtrainsWbr = document.createElement("br")
+        let hrW = document.createElement("hr")
+        hrW.class = "dashed"
+        
+        let sliderstartlblW = document.createElement("label")
+        sliderstartlblW.innerHTML = "Starting from:"
+        let everylblbrW1 = document.createElement("br")
+        let sliderstartW = document.createElement("input")
+        sliderstartW.id = "recurringtrainsstartsliderW" + String(l)
+        sliderstartW.max = "15"
+        sliderstartW.min = "0"
+        sliderstartW.type = "range"
+        sliderstartW.value = "0"
+        sliderstartW.dataset.line = l
+        sliderstartW.dataset.direction = "W"
+        sliderstartW.oninput = function(){recurringtrainsstartslider(this.id)}
+        let startsliderlblW = document.createElement("label")
+        startsliderlblW.id = "recurringtrainsstartlblW" + String(l)
+        startsliderlblW.innerHTML = "0 seconds"
+        let everylblbrW2 = document.createElement("br")
+        let everylblW = document.createElement("label")
+        everylblW.innerHTML = "Every:"
+        let everylblbrW3 = document.createElement("br")
+        
+        let westslider = document.createElement("input")
+        westslider.id = "recurringtrainsliderW" + String(l)
+        westslider.max = "15"
+        westslider.min = "10"
+        westslider.type = "range"
+        westslider.value = "10"
+        westslider.dataset.line = l
+        westslider.dataset.direction = "W"
+        westslider.oninput = function(){recurringtrainsslider(this.id)}
+        let sliderlblw = document.createElement("label")
+        sliderlblw.id = "recurringtrainsLabelValueW" + String(l)
+        sliderlblw.for = westslider.id
+        sliderlblw.innerHTML = "10 seconds"
+        let newbrw = document.createElement("br")
+        let disablerecurringlblw = document.createElement("label")
+        disablerecurringlblw.for = "disablerecurringlblW" + String(l)
+        disablerecurringlblw.innerHTML = "no trains going to west"
+        let disablerecurringchckw = document.createElement("input")
+        disablerecurringchckw.id = "disablerecurringW" + String(l)
+        disablerecurringchckw.type = "checkbox"
+        disablerecurringchckw.name = disablerecurringchck.id
+        disablerecurringchckw.dataset.line = l
+        disablerecurringchckw.dataset.direction = "W"
+        disablerecurringchckw.onchange = function(){disablerecurring(this.id)}
+        
+        newlinewest.appendChild(newlinewestlegend)
+        
+        newlinewest.appendChild(numtrainsWlbl)
+        newlinewest.appendChild(numtrainsWbr)
+        newlinewest.appendChild(hrW)
+        
+        newlinewest.appendChild(sliderstartlblW)
+        newlinewest.appendChild(everylblbrW1)
+        newlinewest.appendChild(sliderstartW)
+        newlinewest.appendChild(startsliderlblW)
+        newlinewest.appendChild(everylblbrW2)
+        newlinewest.appendChild(everylblW)
+        newlinewest.appendChild(everylblbrW3)
+        
+        newlinewest.appendChild(westslider)
+        newlinewest.appendChild(sliderlblw)
+        newlinewest.appendChild(newbrw)
+        newlinewest.appendChild(disablerecurringlblw)
+        newlinewest.appendChild(disablerecurringchckw)
+        
+        newlinefield.appendChild(newlinewest)
+        
+        let linksliderslbl = document.createElement("label")
+        linksliderslbl.innerHTML = "link east and west sliders"
+        let linksliderschk = document.createElement("input")
+        linksliderschk.name = "linkrecurring" + String(l)
+        linksliderschk.id = linksliderschk.name
+        linksliderschk.type = "checkbox"
+        linksliderschk.dataset.line = l
+        linksliderschk.dataset.onchange = function(){linkrecurring(this.id)}
+        linksliderschk.checked = true
+                
+        newlinefield.appendChild(linksliderslbl)
+        newlinefield.appendChild(linksliderschk)
 
+        recurringfieldset.appendChild(newlinefield)
+        
+      }
+      
+      if( l=== (numLines-1) ){
+        
+        let newbr1 = document.createElement("br")
+        let newcenter = document.createElement("center")
+        let exectutebtn = document.createElement("input")
+        exectutebtn.id = "recurringtrainsexecute" + String(l)
+        exectutebtn.type = "button"
+        exectutebtn.value = "execute"
+        //exectutebtn.dataset.line = l
+        //exectutebtn.onclick = function(){recurringtrainsexecute(this.id)}
+        exectutebtn.onclick = function(){recurringtrainsexecute()}
+          
+        newcenter.appendChild(exectutebtn)
+        recurringfieldset.appendChild(newbr1)
+        recurringfieldset.appendChild(newcenter)
+                
+      }
+      
+      let circular = circ[l]
+      
+      let sumoftimes = 0
+      
+      for(let s=1; s<numOfStations; s++){
+        sumoftimes = sumoftimes + timeArrayEast[l][s]
+        
+      }
+      
+      
+      
+      
+      let recurringtrainsliderE = document.getElementById("recurringtrainsliderE" + String(l))
+      let recurringtrainsliderW = document.getElementById("recurringtrainsliderW" + String(l))
+      let recurringstartE = document.getElementById("recurringtrainsstartsliderE" + String(l))
+      let recurringstartW = document.getElementById("recurringtrainsstartsliderW" + String(l))
+      if(circular===true){
+        recurringtrainsliderE.max = ((sumoftimes) + (stopLen * numOfStations)) - (5 + stopLen)
+      }else{
+        recurringtrainsliderE.max = ((sumoftimes * 2) + ((stopLen * numOfStations) * 2)) - (5 + (stopLen*3))
+      }
+      recurringtrainsliderW.max = recurringtrainsliderE.max
+      
+      
+      sumoftimesarray[l] = Number(recurringtrainsliderE.max)
+      
+      recurringtrainsliderE.min = stopLen + 5
+      recurringtrainsliderE.value = recurringtrainsliderE.max / 2
+      recurringdata[l][0] = Number(recurringtrainsliderE.value)
+      recurringdata[l][1] = Number(recurringtrainsliderE.value)
+      recurringtrainsliderW.min = stopLen + 5
+      recurringtrainsliderW.value = recurringtrainsliderW.max / 2
+      
+      recurringstartE.max = Number(recurringtrainsliderE.max) - (Number(recurringtrainsliderE.min))
+      recurringstartW.max = recurringstartE.max
+      
+      let recurringlblE = document.getElementById("recurringtrainsLabelValueE" + String(l))
+      recurringlblE.innerHTML = recurringtrainsliderE.value + " seconds"
+      let recurringlblW = document.getElementById("recurringtrainsLabelValueW" + String(l))
+      recurringlblW.innerHTML = recurringtrainsliderW.value + " seconds"
+      
+      let numtrainslblE = document.getElementById("recnumtrainsE" + String(l))
+      let numtrainslblW = document.getElementById("recnumtrainsW" + String(l))
+  
+      let numtrains = Math.trunc(sumoftimesarray[l]/Number(recurringtrainsliderE.value))
+      
+      numtrainslblE.innerText = String(numtrains) + " Trains"
+      numtrainslblW.innerText = String(numtrains) + " Trains"
+      
       //DATASET FORMAT:
       //trainsData[dir][trainNum] = [direction,seriesIndex,startStation,startTime ,speeds[], stoplenghts[]]
       //trainsData[0] = east trains
@@ -1201,9 +1847,8 @@ function initFormData(firstTime){
         }
       }
   
-      console.log("stopsArray",stopsArray)
+      
     
-      let circular = circ[l]
       let lineLetter = numToLetter(l)
     
       trainsData[0][1] = []
@@ -1239,22 +1884,22 @@ function initFormData(firstTime){
       numberOfSeries++
       
       //numberOfSeries = currentSerie -1
-  
+      
       //trainsData[1][1][6] = []
       //trainsData[1][1][6] = newTrainWestCircular(1,1,0,numIterations)
-  
+      
       let startTimeInput1 = 0 //document.getElementById("train1EstartTimeValue")
       let startTimeInput2 = 0 //document.getElementById("train1WstartTimeValue")
-  
+      
       //startTimeInput1.addEventListener("change", changeStartTime)
       //startTimeInput2.addEventListener("change", changeStartTime)
-  
+      
       let div1 = document.getElementById("div1")
       div1.style.display = "none";
-  
+      
       let div2 = document.getElementById("div2")
       div2.style.display = "inline";
-  
+      
       //addStationsToTable(trainNum, startStation, direction, startTime, appendToExisingTable)
       addStationsToTable(1,1,"E",0,false,l)
       addStationsToTable(1,1,"W",0,false,l)
@@ -1354,19 +1999,35 @@ function initFormData(firstTime){
     //numberOfSeries = currentSerie
   }
   
-  console.log("numLines",numLines,"numCircLines",numCircLines,"numNonCircLines",numNonCircLines)
+  
   drawMareyGraph(numberOfSeries, trainsData)
+  
 }
 
-function deleteTrain(elemId){
-  const elem = document.getElementById(elemId)
-  let trainNum = Number(elem.dataset.train)
-  let direction = elem.dataset.direction
+function deleteTrain(elemId, recurring, tnum, dire){
+  
+  let elem
+  let trainNum
+  let direction
   let dir
-  if(direction=="E"){
-    dir = 0
+  if(recurring===true){
+    trainNum = tnum
+    direction = dire
+    if(direction=="E"){
+      dir = 0
+    }else{
+      dir = 1
+    }
   }else{
-    dir = 1
+  
+    elem = document.getElementById(elemId)
+    trainNum = Number(elem.dataset.train)
+    direction = elem.dataset.direction
+    if(direction=="E"){
+      dir = 0
+    }else{
+      dir = 1
+    }
   }
   let trainLine = trainsData[dir][trainNum][7]
   let circular = circ[trainLine]
@@ -1378,11 +2039,11 @@ function deleteTrain(elemId){
   
   let seriesToDelete = trainsData[dir][trainNum][1]
   
-  console.log("delete train n",trainNum,"direction",direction,"in series",seriesToDelete)
-  console.log(options.series[seriesToDelete])
-  console.log("seriesToDelete",seriesToDelete)
   
-  console.log("old trainsetdata",trainsData[dir])
+  
+  
+  
+  
   
   for(let t=1; t<=numberOfTrainsE; t++){    
     let trainserie = trainsData[0][t][1]
@@ -1405,7 +2066,7 @@ function deleteTrain(elemId){
   
   trainsData[dir] = datacopy
   
-  console.log("new trainsetdata",trainsData[dir])
+  
   
   //numberOfTrainsE
   //numberOfTrainsW
@@ -1435,14 +2096,14 @@ function deleteTrain(elemId){
   //trainsTable = document.getElementById("trains",direction,"Table")
   //trainrow = document.getElementById("".concat("train",trainNum,direction,"row"))
   
-  if(lines[trainLine][2] < 1){
-    numLines--
-    if(circular===true){
-      numCircLines--
-    }else{
-      numNonCircLines--
-    }
-  }
+  //if(lines[trainLine][2] < 1){
+    //numLines--
+    //if(circular===true){
+      //numCircLines--
+    //}else{
+      //numNonCircLines--
+    //}
+  //}
   
   if(trainNum<numTrains){
     deletemorerows = true
@@ -1473,7 +2134,7 @@ function deleteTrain(elemId){
     for(let t=trainNum+1;t<numTrains;t++){
       let startStation = trainsData[dir][t][2]
       let startTime = trainsData[dir][t][3]
-      console.log(t)
+      
       let trainrow = document.createElement("tr")
       let traincol = document.createElement("td")
       if(direction==="E"){
@@ -1493,14 +2154,27 @@ function deleteTrain(elemId){
   }
   
   
-  console.log("old series",options.series)
+  
   
   options.series.splice(seriesToDelete,1)
   
-  console.log("new series",options.series)  
-  console.log("new trainsetdata",trainsData[dir])
+    
   
-  //addStationsToTable(trainNum, startStation, direction, startTime, appendToExisingTable)  
+  
+  //addStationsToTable(trainNum, startStation, direction, startTime, appendToExisingTable)
+  
+  if((numberOfTrainsE == 0) && (numberOfTrainsW == 0)){
+    numberOfTrainsE = 0
+    numberOfTrainsW = 0
+    numberOfSeries = 0
+    nextSerie = 0
+    trainsData = []
+    trainsData[0] = [] //east trains array
+    trainsData[1] = [] //west trains array
+    trainsData[0][0] = null
+    trainsData[1][0] = null
+    options.series = []
+  }
   
   for(let t=1;t<=numberOfTrainsE;t++){
     redraw(t,"E")
@@ -1513,7 +2187,7 @@ function deleteTrain(elemId){
 
 function updateNewTrainStationsList(line){
   if(numLines>1){
-    console.log("newTrainLineSelect clicked, line=",line)
+    
     let circular = circ[line]
     let numOfStations = numStations[line]
     let newTrainStartStationSelect = document.getElementById("newTrainStartStationSelect")
@@ -1543,23 +2217,35 @@ function updateNewTrainStationsList(line){
   }
 }
 
-function addTrain(){
-
-  const directionRadio = document.getElementsByName("newTraindirection")
+function addTrain(recurring, tline, dire, startt, starts ){
+  
   let direction
-  let trainNum
-  let startTime = Number(document.getElementById("newTrainStartTime").value)
-  const startStation = Number(document.getElementById("newTrainStartStationSelect").value)
+  let startTime
+  let startStation
+  let trainLine
   
-  const trainLine = Number(document.getElementById("newTrainLineSelect").value)
-  let circular = circ[trainLine]
-  let numOfStations = numStations[trainLine]
+  if(recurring === true){
+    startTime = startt
+    startStation = starts
+    trainLine = tline
+    direction = dire
+  }else{
+    const directionRadio = document.getElementsByName("newTraindirection")
   
-  for(let i=0;i<directionRadio.length; i++){
-    if(directionRadio[i].checked){
-      direction = directionRadio[i].value
+    startTime = Number(document.getElementById("newTrainStartTime").value)
+    startStation = Number(document.getElementById("newTrainStartStationSelect").value)
+    trainLine = Number(document.getElementById("newTrainLineSelect").value)
+  
+    for(let i=0;i<directionRadio.length; i++){
+      if(directionRadio[i].checked){
+        direction = directionRadio[i].value
+      }
     }
+    
   }
+  
+  let numOfStations = numStations[trainLine]
+  let circular = circ[trainLine]
   
   let speedsArray = []
   let stopsArray = []
@@ -1591,7 +2277,7 @@ function addTrain(){
     lines[trainLine][0] = lines[trainLine][0] + 1
     trainNum = numberOfTrainsE
     trainsData[0][trainNum] = [direction,nextSerie,startStation,startTime,speedsArray,stopsArray,[],trainLine]
-    console.log(trainsData[0])
+    
     if(circular===true){
       trainsData[0][trainNum][6] = newTrainEastCircular(nextSerie,startStation,startTime,numIterations,speedsArray,stopsArray,trainLine)
     }else{
@@ -1604,7 +2290,7 @@ function addTrain(){
     lines[trainLine][1] = lines[trainLine][1] + 1
     trainNum = numberOfTrainsW
     trainsData[1][trainNum] = [direction,nextSerie,startStation,startTime,speedsArray,stopsArray,[],trainLine]
-    console.log(trainsData[1])
+    
     if(circular===true){
       trainsData[1][trainNum][6] = newTrainWestCircular(nextSerie,startStation,startTime,numIterations,speedsArray,stopsArray,trainLine)
     }else{
@@ -1636,7 +2322,7 @@ function addTrain(){
   //drawMareyGraph()
   redraw(trainNum,direction)
   
-  console.log("".concat("Train added [direction:",direction," number:",trainNum," start station:",startStation," start time:",startTime,"]"," line: ",numToLetter(trainLine)))
+  
   
   document.getElementById("newTrainStartStation1option").selected = true
   document.getElementById("newTrainStartTime").value = 0
@@ -1981,7 +2667,7 @@ function plotStationsLines(){
   }
   
   for(let l=0; l<numLines; l++){
-    console.log("l",l)
+    
     let currline = linesorder[l]
     let prevline = linesorder[l-1]
     
@@ -1991,14 +2677,14 @@ function plotStationsLines(){
       sharedlist[currline][s] = []
       sharedlist[currline][s][0] = false
     }
-    console.log("sharedlist",sharedlist)
+    
     
     if(sharedStationsTable[currline].numshared >= 1){
       for(let s=0;s<sharedStationsTable[currline].numshared;s++){
         
         let numstation = sharedStationsTable[currline].sharedlist[s].number
         let equivalent = sharedStationsTable[currline].sharedlist[s].equivalent
-        console.log("s",s,"numstation",numstation,"equivalent",equivalent)
+        
         sharedlist[currline][numstation][0] = true
         sharedlist[currline][numstation][1] = []
         for(let ss=0;ss<equivalent.length;ss++){
@@ -2009,11 +2695,11 @@ function plotStationsLines(){
       }
     }
     
-    console.log("sharedlist",sharedlist)
+    
   }
 
   for(let o=0; o<numLines; o++){
-    console.log("o",o)
+    
     let currline = linesorder[o]
     let prevline = linesorder[o-1]
     
@@ -2024,14 +2710,14 @@ function plotStationsLines(){
     let numShared = sharedStationsTable[currline].numshared
     
     for(let i = 0; i <= numOfStations-1; i++){
-      console.log("o",o,"i",i)
+      
       let axisLabel = ''.concat("Station ",i+1,lineLetter)
       if(sharedlist[currline][i+1][0] == true){
         for(let s=0;s<sharedlist[currline][i+1][1].length;s++){
           //might be messy with circular line should do a check to avoid it
-          console.log("s",s,"sharedlist[currline][i]",sharedlist[currline][i+1])
-          console.log("s",s,"sharedlist[currline][i][1]",sharedlist[currline][i+1][1])
-          //console.log("s",s,"sharedlist[i][1][s]",sharedlist[i+1][1][s])
+          
+          
+          
           line2letter = numToLetter(sharedlist[currline][i+1][1][s][0])
           station2 = sharedlist[currline][i+1][1][s][1]
           axisLabel = axisLabel + "/" + station2 + line2letter
@@ -2043,7 +2729,7 @@ function plotStationsLines(){
       if ((i === numOfStations -1)&&(circular===true)){
         axisLabel = ''.concat("Station ",1,lineLetter)
       }
-      console.log("axislabel",axisLabel)
+      
       
       let labelOffset = axisLabel.length
       stationNames[cumulativeDistEast[currline][i]] = axisLabel
@@ -2065,9 +2751,9 @@ function plotStationsLines(){
         })
       }else{
         for(let d=0;d<donotpushlist.length;d++){
-          //console.log("d",d,"len",donotpushlist.length,"donotpushlist[d]",donotpushlist[d],"axisLabel",axisLabel)
+          
           if(donotpushlist[d] == axisLabel){
-            //console.log("break")
+            
             break
           }
           if(d===(donotpushlist.length-1)){
@@ -2097,7 +2783,7 @@ function plotStationsLines(){
     
   }
   
-  console.log(options.yAxis.plotLines)
+  
 
 }
 
@@ -2114,13 +2800,13 @@ function tooltipformatter(){
             );
          }
 
-  //console.log(options.tooltip)
+  
 
 }
 
 function plotxasislines(){
 
-  //console.log(options.series[0].data)
+  
   
     let tempticks = []
     let ticks = []
@@ -2308,8 +2994,8 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
   let timeArray = timeArrayWest[trainLine]
   let cumulativeDist = []
   
-  console.log("timearrayWest[trainLine]",timeArrayWest[trainLine])
-  console.log("cumulativeDistWest[trainLine]",cumulativeDistWest[trainLine])
+  
+  
   
   let tempTimeArrayEast = []
   tempTimeArrayEast[0] = 0
@@ -2340,7 +3026,7 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
     timeArray[i+1] = tempTimeArrayEast[arrayLen-i]
   }
   
-  console.log("".concat("new timearrayWest ",timeArray))
+  
   
 
   let trainArray = []
@@ -2375,23 +3061,23 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
       //handles stations from startStation to last
       let currentStation = startStation
       let currentStopLen
-      console.log("currentStation",currentStation)
+      
       for (let j = 0; j <= ((numOfStationsToHandle *2)-1); j++)  {
         if (j % 2 == 0) {
           if ((i === 0) && (j>1)) {
             trainArray[i][j] = []
             trainArray[i][j][0] = trainArray[i][j-1][0] + timeArray[currentStation];
             trainArray[i][j][1] = cumulativeDistWest[trainLine][currentStation];
-            //console.log("currentStation",currentStation)
+            
           } else if ((i > 0 ) && (j>1)) {
             if (currentStation < numOfStations){
               if(startFrom1st){
                 if(currentStation == numOfStations -1){
                   currentStopLen = stopsArray[1]
-                  //console.log("Line",((new Error().lineNumber) - line0))
+                  
                 }else{
                   currentStopLen = stopsArray[currentStation +1]
-                  //console.log("Line",((new Error().lineNumber) - line0))
+                  
                 }
                 trainArray[i][j] = []
                 trainArray[i][j][0] = trainArray[i][j-1][0] + currentStopLen;
@@ -2410,16 +3096,16 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
           if ((i === 0) && (j>1)) {
             if(currentStation == numOfStations -1){
               currentStopLen = stopsArray[1]
-              //console.log("Line",((new Error().lineNumber) - line0))
+              
             }else{
               currentStopLen = stopsArray[currentStation +1]
-              //console.log("Line",((new Error().lineNumber) - line0))
+              
             }
             trainArray[i][j] = []
             trainArray[i][j][0] = trainArray[i][j-1][0] + currentStopLen;
             trainArray[i][j][1] = cumulativeDistWest[trainLine][currentStation];
             currentStation++
-            //console.log("currentStation",currentStation)
+            
           } else if ((i > 0 ) && (j>1)) {
             if (currentStation < numOfStations){
               if(startFrom1st){
@@ -2430,10 +3116,10 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
               }else{
                 if(currentStation == numOfStations -1){
                   currentStopLen = stopsArray[1]
-                  //console.log("Line",((new Error().lineNumber) - line0))
+                  
                 }else{
                   currentStopLen = stopsArray[currentStation +1]
-                  //console.log("Line",((new Error().lineNumber) - line0))
+                  
                 }
                 trainArray[i][j] = []
                 trainArray[i][j][0] = trainArray[i][j-1][0] + currentStopLen;
@@ -2472,10 +3158,10 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
               }else{
                 if(currentStation == numOfStations -1){
                   currentStopLen = stopsArray[1]
-                  //console.log("Line",((new Error().lineNumber) - line0))
+                  
                 }else{
                   currentStopLen = stopsArray[currentStation +1]
-                  //console.log("Line",((new Error().lineNumber) - line0))
+                  
                 }
                 trainArray[i][1] = []
                 trainArray[i][1][0] = trainArray[i][0][0] + currentStopLen;
@@ -2513,10 +3199,10 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
           if (i === 0) {
             if(currentStation == numOfStations -1){
               currentStopLen = stopsArray[1]
-            //console.log("Line",((new Error().lineNumber) - line0))
+            
             }else{
               currentStopLen = stopsArray[currentStation +1]
-              //console.log("Line",((new Error().lineNumber) - line0))
+              
             }
             trainArray[i][nextPointIndex+j] = []
             trainArray[i][nextPointIndex+j][0] = trainArray[i][(nextPointIndex+j)-1][0] + currentStopLen;
@@ -2525,10 +3211,10 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
           } else if (i > 0 ) {
             if(currentStation == numOfStations -1){
               currentStopLen = stopsArray[1]
-            //console.log("Line",((new Error().lineNumber) - line0))
+            
             }else{
               currentStopLen = stopsArray[currentStation +1]
-              //console.log("Line",((new Error().lineNumber) - line0))
+              
             }
             trainArray[i][nextPointIndex+j] = []
             trainArray[i][nextPointIndex+j][0] = trainArray[i][(nextPointIndex+j)-1][0] + currentStopLen;
@@ -2553,7 +3239,7 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
     
   }
   
-  console.log(trainArray)
+  
   
   
   
@@ -2563,28 +3249,28 @@ function newTrainWestCircular(seriesIndex,startStation,startTime,nOfIterations ,
 
 function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, speedsArray, stopsArray, trainLine){
   
-  console.log("speeds array E:")
-  console.log(speedsArray)
+  
+  
   
   let numOfStations = numStations[trainLine]
   
   let timeArray = []
   timeArray[0] = 0
   
-  console.log("".concat("timearrayEast ",timeArrayEast[trainLine]))
-  console.log("".concat("cumulativeDistEast[trainLine] ",cumulativeDistEast[trainLine]))
+  
+  
   
   for(let i=1; i<numOfStations; i++){
     if(speedsArray[i] < 100){
       let speedMultiplier = 100 / speedsArray[i]
       timeArray[i] = Number(toFixed(timeArrayEast[trainLine][i] * speedMultiplier, 1))
-      console.log("".concat("speed multiplier ",speedMultiplier))
+      
     }else{
       timeArray[i] = timeArrayEast[trainLine][i]
     }
   }
   
-  console.log("".concat("new timearrayEast ",timeArray))
+  
   
   let trainArray = []
   trainArray[0] = []
@@ -2612,7 +3298,7 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
   //stopsArray[currentStation]
   
   trainArray[0] = [[startTime, startY],[(startTime+stopsArray[startStation]), startY]]
-  //console.log("stopsArray[startStation]=",stopsArray[startStation],"startStation=",startStation)
+  
   //numOfStationsToHandle = 
   let nextPointIndex
   for (let i = 0; i <= (nOfIterations-1); i++) {
@@ -2621,7 +3307,7 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
       let currentStation = startStation
       for (let j = 0; j <= ((numOfStationsToHandle *2)-1); j++)  {
         let currentStopLen
-        //console.log(currentStation)
+        
         if (j % 2 == 0) {
           if ((i === 0) && (j>1)) {
             trainArray[i][j] = []
@@ -2632,14 +3318,14 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
               if(startFrom1st){
                 if(currentStation == numOfStations -1){
                   currentStopLen = stopsArray[1]
-                  //console.log("Line",((new Error().lineNumber) - line0))
+                  
                 }else{
                   currentStopLen = stopsArray[currentStation +1]
-                  //console.log("Line",((new Error().lineNumber) - line0))
+                  
                 }
                 trainArray[i][j] = []
                 trainArray[i][j][0] = trainArray[i][j-1][0] + currentStopLen;
-                //console.log("Line",((new Error().lineNumber) - line0),"currentStopLen=",currentStopLen,"currentstation=",currentStation)
+                
                 trainArray[i][j][1] = cumulativeDistEast[trainLine][currentStation];
                 currentStation++
                 nextPointIndex++
@@ -2657,14 +3343,14 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
             //currentStopLen
             if(currentStation == numOfStations -1){
               currentStopLen = stopsArray[1]
-              //console.log("Line",((new Error().lineNumber) - line0))
+              
             }else{
               currentStopLen = stopsArray[currentStation +1]
-              //console.log("Line",((new Error().lineNumber) - line0))
+              
             }
             trainArray[i][j] = []
             trainArray[i][j][0] = trainArray[i][j-1][0] + currentStopLen;
-            //console.log("Line",((new Error().lineNumber) - line0),"currentStopLen=",currentStopLen,"currentstation=",currentStation)
+            
             trainArray[i][j][1] = cumulativeDistEast[trainLine][currentStation];
             currentStation++
             
@@ -2683,7 +3369,7 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
                 }
                 trainArray[i][j] = []
                 trainArray[i][j][0] = trainArray[i][j-1][0] + currentStopLen;
-                //console.log("Line",((new Error().lineNumber) - line0),"currentStopLen=",currentStopLen,"currentstation=",currentStation)
+                
                 trainArray[i][j][1] = cumulativeDistEast[trainLine][currentStation];
                 currentStation++
                 nextPointIndex++
@@ -2710,7 +3396,7 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
                 trainArray[i][0][1] = cumulativeDistEast[trainLine][currentStation];
                 nextPointIndex = 1
               }
-              console.log(trainArray)
+              
             }else if (j==1){
               
               if(startFrom1st){
@@ -2726,12 +3412,12 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
                 }
                 trainArray[i][1] = []
                 trainArray[i][1][0] = trainArray[i][0][0] + currentStopLen;
-                //console.log("Line",((new Error().lineNumber) - line0),"currentStopLen=",currentStopLen,"currentstation=",currentStation)
+                
                 trainArray[i][1][1] = cumulativeDistEast[trainLine][currentStation];
                 currentStation++
                 nextPointIndex++
               }
-              //console.log(trainArray)
+              
             }
           }
         }
@@ -2739,7 +3425,7 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
       }
     }
     
-    //console.log(trainArray)
+    
     
     if (!startFrom1st){
       //handles stations from 1st to (startStation-1)
@@ -2774,27 +3460,27 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
             trainArray[i][nextPointIndex+j][0] = trainArray[i][(nextPointIndex+j)-1][0] + stopsArray[currentStation + 1];
             trainArray[i][nextPointIndex+j][1] = cumulativeDistEast[trainLine][currentStation];
             currentStation++
-            //console.log(trainArray)
+            
           } else if (i > 0 ) {
             
             trainArray[i][nextPointIndex+j] = []
             trainArray[i][nextPointIndex+j][0] = trainArray[i][(nextPointIndex+j)-1][0] + stopsArray[currentStation + 1];
             trainArray[i][nextPointIndex+j][1] = cumulativeDistEast[trainLine][currentStation];
             currentStation++
-            //console.log(trainArray)
+            
             
           }
         
         } else if (j % 2 != 0) {
           if (i === 0) {
-            //console.log(nextPointIndex+j)
-            //console.log(trainArray[i][(nextPointIndex+j)-1][0])
-            //console.log(currentStation)
-            //console.log(timeArray[currentStation])
+            
+            
+            
+            
             trainArray[i][nextPointIndex+j] = []
             trainArray[i][nextPointIndex+j][0] = trainArray[i][(nextPointIndex+j)-1][0] +timeArray[currentStation];
             trainArray[i][nextPointIndex+j][1] = cumulativeDistEast[trainLine][currentStation];
-            //console.log(trainArray)
+            
           } else if (i > 0 ) {
             if (currentStation < numOfStations ){
               
@@ -2802,7 +3488,7 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
             trainArray[i][nextPointIndex+j] = []
             trainArray[i][nextPointIndex+j][0] = trainArray[i][(nextPointIndex+j)-1][0] +timeArray[currentStation];
             trainArray[i][nextPointIndex+j][1] = cumulativeDistEast[trainLine][currentStation];
-            //console.log(trainArray)
+            
           }
         }
       }
@@ -2810,7 +3496,7 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
     }
   }
   
- console.log(trainArray)
+ 
  
   
   
@@ -2824,16 +3510,16 @@ function newTrainEastCircular(seriesIndex,startStation,startTime,nOfIterations, 
 
 function newTrainWest(seriesIndex,startStation,startTime,nOfIterations ,speedsArray, stopsArray, trainLine){
   
-  console.log("speeds array W:")
-  console.log(speedsArray)
+  
+  
   
   let numOfStations = numStations[trainLine]
   
   let timeArray = timeArrayWest[trainLine]
   let cumulativeDist = []
   
-  console.log("timearrayWest ",timeArrayWest[trainLine])
-  console.log("cumulativeDistWest[trainLine] ",cumulativeDistWest[trainLine])
+  
+  
   
   let tempTimeArrayEast = []
   tempTimeArrayEast[0] = 0
@@ -2864,7 +3550,7 @@ function newTrainWest(seriesIndex,startStation,startTime,nOfIterations ,speedsAr
     timeArray[i+1] = tempTimeArrayEast[arrayLen-i]
   }
   
-  console.log("".concat("new timearrayWest ",timeArray))
+  
   
   let trainArray = []
   trainArray[0] = []
@@ -2886,7 +3572,7 @@ function newTrainWest(seriesIndex,startStation,startTime,nOfIterations ,speedsAr
     startFrom1st = false
     //startFromLast = false
   }
-  console.log("numOfStationsToHandle=",numOfStationsToHandle,"startStation=",startStation,"numOfStations=",numOfStations)
+  
   
   trainArray[0] = [[startTime, startY],[(startTime+stopsArray[startStation]), startY]]
   let nextPointIndex = 0
@@ -2894,7 +3580,7 @@ function newTrainWest(seriesIndex,startStation,startTime,nOfIterations ,speedsAr
   for (let i = 0; i <= (nOfIterations-1); i++) {
     //handles stations from startStation to last
     let startingIndex = nextPointIndex
-    console.log("========WEST=======STARING ITERATION N.",i," startingIndex=",startingIndex)
+    
     
     if(i==0){
       nextPointIndex = 2
@@ -2917,22 +3603,22 @@ function newTrainWest(seriesIndex,startStation,startTime,nOfIterations ,speedsAr
         nextPointIndex++
       }
       currentStation = numOfStations
-      console.log("nextpoindIndex",nextPointIndex)
-      console.log("looping back, i=",i)
+      
+      
       startingIndex = nextPointIndex
       //looping back
       for (let j = 0; j <= ((numOfStations *2)-3); j++)  {
         let currentStopLen
         let seriesindex = startingIndex + j
-        //console.log("seriesindex",seriesindex,"i=",i,"currentstation=",currentStation)
-        //console.log("trainArray[i][seriesindex-1]=",trainArray[i][seriesindex-1])
+        
+        
         if (j % 2 == 0) {
           trainArray[i][seriesindex] = []
           trainArray[i][seriesindex][0] = trainArray[i][seriesindex-1][0] + timeArray[currentStation-1];
           trainArray[i][seriesindex][1] = cumulativeDistWest[trainLine][currentStation-2];
-          //console.log("============A")
-          //console.log("0=",(trainArray[i][seriesindex-1][0]),"+",(timeArray[currentStation-1]))
-          //console.log("1=",(cumulativeDistWest[trainLine][currentStation-2]))
+          
+          
+          
         }else if (j % 2 != 0) {
           //if(currentStation == 1){
             //currentStopLen = stopsArray[1]
@@ -2943,9 +3629,9 @@ function newTrainWest(seriesIndex,startStation,startTime,nOfIterations ,speedsAr
           trainArray[i][seriesindex][0] = trainArray[i][seriesindex-1][0] + currentStopLen;
           trainArray[i][seriesindex][1] = cumulativeDistWest[trainLine][currentStation-2];
           currentStation--
-          //console.log("============B")
-          //console.log("0=",(trainArray[i][seriesindex-1][0]),"+",(currentStopLen))
-          //console.log("1=",(cumulativeDistWest[trainLine][currentStation-2]))
+          
+          
+          
         }
         nextPointIndex++
       }
@@ -2957,100 +3643,100 @@ function newTrainWest(seriesIndex,startStation,startTime,nOfIterations ,speedsAr
         let seriesindex = startingIndex + j
         if (j % 2 == 0) {
           if(j===0){
-             console.log("i=",i,"j=",j)
+             
             trainArray[i] = []
             trainArray[i][j] = []
-            //console.log(trainArray[i-1][startingIndex-1])
+            
             trainArray[i][j][0] = trainArray[i-1][startingIndex-1][0] + timeArray[currentStation];
             trainArray[i][j][1] = cumulativeDistWest[trainLine][currentStation];
-            console.log(trainArray[i])
+            
           }else{
-            console.log("i=",i,"j=",j)
+            
             trainArray[i][j] = []
             trainArray[i][j][0] = trainArray[i][j-1][0] + timeArray[currentStation];
             trainArray[i][j][1] = cumulativeDistWest[trainLine][currentStation];
-            console.log(trainArray[i])
+            
           }
         }else if (j % 2 != 0) {
-          console.log("i=",i,"j=",j)
+          
           currentStopLen = stopsArray[currentStation +1]
           trainArray[i][j] = []
           trainArray[i][j][0] = trainArray[i][j-1][0] + currentStopLen;
           trainArray[i][j][1] = cumulativeDistWest[trainLine][currentStation];
           currentStation++
-          console.log(trainArray[i])
+          
         }
         nextPointIndex++
       }
       currentStation = numOfStations
-      console.log("nextpoindIndex",nextPointIndex)
-      console.log("looping back, i=",i)
+      
+      
       startingIndex = nextPointIndex
       //looping back
       for (let j = 0; j <= ((numOfStations *2)-3); j++)  {
         
         let currentStopLen
         let seriesindex = startingIndex + j
-        //console.log("seriesindex",seriesindex,"i=",i,"currentstation=",currentStation)
-        //console.log("trainArray[i][seriesindex-1]=",trainArray[i][seriesindex-1])
+        
+        
         if (j % 2 == 0) {
-          console.log("i=",i,"j=",j)
+          
           trainArray[i][seriesindex] = []
-          //console.log("=============",trainArray[i][seriesindex-1])
+          
           trainArray[i][seriesindex][0] = trainArray[i][seriesindex-1][0] + timeArray[currentStation-1];
           trainArray[i][seriesindex][1] = cumulativeDistWest[trainLine][currentStation-2];
-          //console.log("============A")
-          //console.log("0=",(trainArray[i][seriesindex-1][0]),"+",(timeArray[currentStation-1]))
-          //console.log("1=",(cumulativeDistWest[trainLine][currentStation-2]))
+          
+          
+          
         }else if (j % 2 != 0) {
           //if(currentStation == 1){
             //currentStopLen = stopsArray[1]
           //}else{
             currentStopLen = stopsArray[currentStation - 1]
           //}
-          console.log("i=",i,"j=",j)
+          
           trainArray[i][seriesindex] = []
           trainArray[i][seriesindex][0] = trainArray[i][seriesindex-1][0] + currentStopLen;
           trainArray[i][seriesindex][1] = cumulativeDistWest[trainLine][currentStation-2];
           currentStation--
-          //console.log("============B")
-          //console.log("0=",(trainArray[i][seriesindex-1][0]),"+",(currentStopLen))
-          //console.log("1=",(cumulativeDistWest[trainLine][currentStation-2]))
+          
+          
+          
         }
         nextPointIndex++
       }
     }
   }
   
-  console.log("WEST",trainArray)
+  
   return trainArray
   
 }
 
 function newTrainEast(seriesIndex,startStation,startTime,nOfIterations, speedsArray, stopsArray, trainLine){
   
-  console.log("speeds array E:")
-  console.log(speedsArray)
+  
+  
   
   let numOfStations = numStations[trainLine]
   
   let timeArray = []
   timeArray[0] = 0
   
-  console.log("".concat("timearrayEast ",timeArrayEast[trainLine]))
-  console.log("".concat("cumulativeDistEast[trainLine] ",cumulativeDistEast[trainLine]))
+  
+  
   
   for(let i=1; i<numOfStations; i++){
     if(speedsArray[i] < 100){
       let speedMultiplier = 100 / speedsArray[i]
       timeArray[i] = Number(toFixed(timeArrayEast[trainLine][i] * speedMultiplier, 1))
-      console.log("".concat("speed multiplier ",speedMultiplier))
+      
     }else{
       timeArray[i] = timeArrayEast[trainLine][i]
     }
   }
   
-  console.log("".concat("new timearrayEast ",timeArray))
+  
   
   let trainArray = []
   trainArray[0] = []
@@ -3071,7 +3757,7 @@ function newTrainEast(seriesIndex,startStation,startTime,nOfIterations, speedsAr
     startFrom1st = false
     //startFromLast = false
   }
-  console.log("numOfStationsToHandle=",numOfStationsToHandle,"startStation=",startStation,"numOfStations=",numOfStations)
+  
   
   trainArray[0] = [[startTime, startY],[(startTime+stopsArray[startStation]), startY]]
   let nextPointIndex = 0
@@ -3079,7 +3765,7 @@ function newTrainEast(seriesIndex,startStation,startTime,nOfIterations, speedsAr
   for (let i = 0; i <= (nOfIterations-1); i++) {
     //handles stations from startStation to last
     let startingIndex = nextPointIndex
-    console.log("===============STARING ITERATION N.",i," startingIndex=",startingIndex)
+    
     
     if(i==0){
       nextPointIndex = 2
@@ -3095,7 +3781,7 @@ function newTrainEast(seriesIndex,startStation,startTime,nOfIterations, speedsAr
         }else if (j % 2 != 0) {
           currentStopLen = stopsArray[currentStation +1]
           trainArray[i][j] = []
-          //console.log("===========================",trainArray[i][j-1],"currentstoplen",currentStopLen)
+          
           trainArray[i][j][0] = trainArray[i][j-1][0] + currentStopLen;
           trainArray[i][j][1] = cumulativeDistEast[trainLine][currentStation];
           currentStation++
@@ -3103,22 +3789,22 @@ function newTrainEast(seriesIndex,startStation,startTime,nOfIterations, speedsAr
         nextPointIndex++
       }
       currentStation = numOfStations
-      console.log("nextpoindIndex",nextPointIndex)
-      console.log("looping back, i=",i)
+      
+      
       startingIndex = nextPointIndex
       //looping back
       for (let j = 0; j <= ((numOfStations *2)-3); j++)  {
         let currentStopLen
         let seriesindex = startingIndex + j
-        //console.log("seriesindex",seriesindex,"i=",i,"currentstation=",currentStation)
-        //console.log("trainArray[i][seriesindex-1]=",trainArray[i][seriesindex-1])
+        
+        
         if (j % 2 == 0) {
           trainArray[i][seriesindex] = []
           trainArray[i][seriesindex][0] = trainArray[i][seriesindex-1][0] + timeArray[currentStation-1];
           trainArray[i][seriesindex][1] = cumulativeDistEast[trainLine][currentStation-2];
-          //console.log("============A")
-          //console.log("0=",(trainArray[i][seriesindex-1][0]),"+",(timeArray[currentStation-1]))
-          //console.log("1=",(cumulativeDistEast[trainLine][currentStation-2]))
+          
+          
+          
         }else if (j % 2 != 0) {
           //if(currentStation == 1){
             //currentStopLen = stopsArray[1]
@@ -3129,9 +3815,9 @@ function newTrainEast(seriesIndex,startStation,startTime,nOfIterations, speedsAr
           trainArray[i][seriesindex][0] = trainArray[i][seriesindex-1][0] + currentStopLen;
           trainArray[i][seriesindex][1] = cumulativeDistEast[trainLine][currentStation-2];
           currentStation--
-          //console.log("============B")
-          //console.log("0=",(trainArray[i][seriesindex-1][0]),"+",(currentStopLen))
-          //console.log("1=",(cumulativeDistEast[trainLine][currentStation-2]))
+          
+          
+          
         }
         nextPointIndex++
       }
@@ -3143,72 +3829,72 @@ function newTrainEast(seriesIndex,startStation,startTime,nOfIterations, speedsAr
         let seriesindex = startingIndex + j
         if (j % 2 == 0) {
           if(j===0){
-             console.log("i=",i,"j=",j)
+             
             trainArray[i] = []
             trainArray[i][j] = []
-            //console.log(trainArray[i-1][startingIndex-1])
+            
             trainArray[i][j][0] = trainArray[i-1][startingIndex-1][0] + timeArray[currentStation];
             trainArray[i][j][1] = cumulativeDistEast[trainLine][currentStation];
-            console.log(trainArray[i])
+            
           }else{
-            console.log("i=",i,"j=",j)
+            
             trainArray[i][j] = []
             trainArray[i][j][0] = trainArray[i][j-1][0] + timeArray[currentStation];
             trainArray[i][j][1] = cumulativeDistEast[trainLine][currentStation];
-            console.log(trainArray[i])
+            
           }
         }else if (j % 2 != 0) {
-          console.log("i=",i,"j=",j)
+          
           currentStopLen = stopsArray[currentStation +1]
           trainArray[i][j] = []
           trainArray[i][j][0] = trainArray[i][j-1][0] + currentStopLen;
           trainArray[i][j][1] = cumulativeDistEast[trainLine][currentStation];
           currentStation++
-          console.log(trainArray[i])
+          
         }
         nextPointIndex++
       }
       currentStation = numOfStations
-      console.log("nextpoindIndex",nextPointIndex)
-      console.log("looping back, i=",i)
+      
+      
       startingIndex = nextPointIndex
       //looping back
       for (let j = 0; j <= ((numOfStations *2)-3); j++)  {
         
         let currentStopLen
         let seriesindex = startingIndex + j
-        //console.log("seriesindex",seriesindex,"i=",i,"currentstation=",currentStation)
-        //console.log("trainArray[i][seriesindex-1]=",trainArray[i][seriesindex-1])
+        
+        
         if (j % 2 == 0) {
-          console.log("i=",i,"j=",j)
+          
           trainArray[i][seriesindex] = []
-          //console.log("=============",trainArray[i][seriesindex-1])
+          
           trainArray[i][seriesindex][0] = trainArray[i][seriesindex-1][0] + timeArray[currentStation-1];
           trainArray[i][seriesindex][1] = cumulativeDistEast[trainLine][currentStation-2];
-          //console.log("============A")
-          //console.log("0=",(trainArray[i][seriesindex-1][0]),"+",(timeArray[currentStation-1]))
-          //console.log("1=",(cumulativeDistEast[trainLine][currentStation-2]))
+          
+          
+          
         }else if (j % 2 != 0) {
           //if(currentStation == 1){
             //currentStopLen = stopsArray[1]
           //}else{
             currentStopLen = stopsArray[currentStation - 1]
           //}
-          console.log("i=",i,"j=",j)
+          
           trainArray[i][seriesindex] = []
           trainArray[i][seriesindex][0] = trainArray[i][seriesindex-1][0] + currentStopLen;
           trainArray[i][seriesindex][1] = cumulativeDistEast[trainLine][currentStation-2];
           currentStation--
-          //console.log("============B")
-          //console.log("0=",(trainArray[i][seriesindex-1][0]),"+",(currentStopLen))
-          //console.log("1=",(cumulativeDistEast[trainLine][currentStation-2]))
+          
+          
+          
         }
         nextPointIndex++
       }
     }
   }
   
-  console.log(trainArray)
+  
   return trainArray
   
 }

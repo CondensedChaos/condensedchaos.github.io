@@ -25,13 +25,7 @@
           <legend>Line A:</legend>
           <div id="timesDiv0">
             <label id="1timel0" for="1time0">1-2 time:</label>
-            <input id="1time0" name="1time0" size="4" type="text" value="21" /><br id="1timebr0"/>
-            <label id="2timel0" for="2time0">2-3 time:</label>
-            <input id="2time0" name="2time0" size="4" type="text" value="17" /><br id="2timebr0"/>
-            <label id="3timel0" for="3time0">3-4 time:</label>
-            <input id="3time0" name="3time0" size="4" type="text" value="40" /><br id="3timebr0"/>
-            <label id="4timel0" for="4time0">4-5 time:</label>
-            <input id="4time0" name="4time0" size="4" type="text" value="70" /><br id="4timebr0"/>
+            <input id="1time0" name="1time0" size="4" type="text" value="23" /><br id="1timebr0"/>
           </div>   
           <fieldset id="0params" style="text-align: right;">
             <legend>Line A parameters:</legend>
@@ -39,7 +33,7 @@
               <center>
                 <label for="numStations0">number of stations:</label><br>
                 <input type="button" value="-" id="removeStationButton0" onclick="removeStation(this.id)" />
-                <input id="numOfStations0" name="numOfStations0" size="2" type="text" value="5" style="text-align: center;color:red" disabled/>
+                <input id="numOfStations0" name="numOfStations0" size="2" type="text" value="2" style="text-align: center;color:red" disabled/>
                 <input type="button" value="+" onclick="addStation(this.id)" id="addStationButton0" />
                 <fieldset id="stationsincommonfield0">
                   <legend>Shared stations:</legend>
@@ -47,12 +41,6 @@
                   <input type="checkbox" id="1incommonchkbox0" data-station="1" data-line="0" onchange="sharedchkbox(this)"><br id="1incommonbr0">
                   <label id="2incommonlbl0">Station 2</label>
                   <input type="checkbox" id="2incommonchkbox0" data-station="2" data-line="0" onchange="sharedchkbox(this)"><br id="2incommonbr0">
-                  <label id="3incommonlbl0">Station 3</label>
-                  <input type="checkbox" id="3incommonchkbox0" data-station="3" data-line="0" onchange="sharedchkbox(this)"><br id="3incommonbr0">
-                  <label id="4incommonlbl0">Station 4</label>
-                  <input type="checkbox" id="4incommonchkbox0" data-station="4" data-line="0" onchange="sharedchkbox(this)"><br id="4incommonbr0">
-                  <label id="5incommonlbl0">Station 5</label>
-                  <input type="checkbox" id="5incommonchkbox0" data-station="5" data-line="0" onchange="sharedchkbox(this)"><br id="5incommonbr0">
                 </fieldset>
               </center>
           </fieldset>
@@ -84,7 +72,7 @@
 <div id="div2">
 
   <div id="sidNavLeft">
-    <nav>
+    <nav id="sidNavLeftchild">
       <table id="trainsETable">
         <tr id="train1Erow">
           <td id="train1ECol">
@@ -96,7 +84,7 @@
   </div>
 
   <div id="sidNavRight">
-    <nav>
+    <nav id="sidNavRightchild">
       <table id="trainsWTable">
         <tr id="train1Wrow">
           <td id="train1WCol">
@@ -117,6 +105,7 @@
   </div>
   
   <div id="container"></div>
+  <center><p>Left click+move: pan and drag, Wheel: zoom in/out</p></center>
   
   <table id="graphcontrol" style="width:100%">
     <tr>
@@ -124,7 +113,44 @@
     <fieldset>
     <legend>Number of iterations:</legend> <input id="iteration1SubstractButton" type="button" value="-"  onclick="changeIterationsNum(this.id)" /> <input id="numIterations1" style="text-align: center;color:red" name="numIterations1" size="4" type="text" value="1" /> <input id="iteration1AddButton" type="button" value="+" onclick="changeIterationsNum(this.id)" /></fieldset>
   </div></td>
-      <td></td>
+      <td style="vertical-align:top">
+        <fieldset id="recurringtrainsfieldset">
+        <legend>Add recurring trains (will replace all trains):</legend>
+          <fieldset id="recurringfield0">
+            <legend>Line A:</legend>
+            One train every:
+            <fieldset>
+              <legend>East:</legend>
+              <label id="recnumtrainsE0">X Trains</label><br>
+              <hr class="dashed">
+              <label>Starting from:</label><br>
+              <input id="recurringtrainsstartsliderE0" min="0" max ="15" type="range" value="0" data-line="0" data-direction="E" oninput="recurringtrainsstartslider(this.id)"><label id="recurringtrainsstartlblE0">0 seconds</label><br>
+              <label>Every:</label><br>
+              <input id="recurringtrainsliderE0" max="15" min="10" type="range" value="10" data-line="0" data-direction="E" oninput="recurringtrainsslider(this.id)" />
+            <label id="recurringtrainsLabelValueE0" for="recurringtrainsliderE0">10 seconds</label>
+            <br>
+            <label for="disablerecurringlblE0">no trains going to east</label>
+            <input type="checkbox" name="disablerecurringE0" id="disablerecurringE0" data-line="0" data-direction="E" onchange="disablerecurring(this.id)" >
+            </fieldset>
+            <fieldset>
+              <legend>West:</legend>
+              <label id="recnumtrainsW0">X Trains</label><br>
+              <hr class="dashed">
+              <label>Starting from:</label><br>
+              <input id="recurringtrainsstartsliderW0" min="0" max ="15" type="range" value="0" data-line="0" data-direction="W" oninput="recurringtrainsstartslider(this.id)"><label id="recurringtrainsstartlblW0">0 seconds</label><br>
+              <label>Every:</label><br>
+              <input id="recurringtrainsliderW0" max="15" min="10" type="range" value="10" data-line="0" data-direction="W" oninput="recurringtrainsslider(this.id)" />
+            <label id="recurringtrainsLabelValueW0" for="recurringtrainsliderW0">10 seconds</label>
+            <br>
+            <label for="disablerecurringlblW0">no trains going to west</label>
+            <input type="checkbox" name="disablerecurringW0" id="disablerecurringW0" data-line="0" data-direction="W" onchange="disablerecurring(this.id)" >
+            </fieldset>
+            <label>link east and west sliders</label>
+            <input type="checkbox" id="linkrecurring0" data-line="0" onchange="linkrecurring(this.id)" checked >
+          </fieldset>
+          
+        </fieldset>
+      </td>
       <td><div id="addTraindiv">
      <fieldset>
           <legend>Add a train:</legend>
