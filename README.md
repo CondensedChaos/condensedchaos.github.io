@@ -8,10 +8,15 @@ Time is plotted on the x asis, usually drawn at the top and stations are plotted
 Each line on the chart represents a single train, with each point indicating its position on the tracks at a single point in time.
 The steeper a line, the faster that train is traveling.
 
+
 Invented in 1847 and still used today to plan transportations network capacity and timetables.
 
+
 I reccomend watching this awesome [video](https://www.youtube.com/watch?v=NFLb1IPlY_k) about Marey graphs made by YouTube Channel [Numberphile](https://www.youtube.com/channel/UCoxcjq-8xIDTYp3uz647V5A), narrated by Professor [Hannah Fry](https://en.wikipedia.org/wiki/Hannah_Fry) watching this same video sparked the inspiration in me to build this mod and webapp.
+
+
 If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqhypxEU) afterwards  made by dr. Kostas Tzanakakis, a more in depht, but stil beginner level, introduction to Marey graphs and trains timetables construction.
+
 
 To learn more about diagrams:
 [What is a Diagram](https://en.wikipedia.org/wiki/Diagram)
