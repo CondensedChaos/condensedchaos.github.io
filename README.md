@@ -7,6 +7,7 @@ As per Highcharts license any derivative work/fork has to repsect the following:
 1) The Highcharts watermark must remain.
 2) Any derivative work has to be distribuited under the same license of this repository (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License)
 
+More about Highcharts Licensing [here](https://www.highcharts.com/blog/download/)
 ---
 
 Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
