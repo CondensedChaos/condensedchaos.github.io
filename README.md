@@ -2,7 +2,7 @@
 
 ##How to use: coming soon!
 
----
+
 ###What is a Marey chart?
 
 A Marey chart is a [time-space diagram](https://en.wikipedia.org/wiki/Time%E2%80%93distance_diagram), a kind of [cartesian](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) [diagram](https://en.wikipedia.org/wiki/Diagram) used to analyze the flow of transportation system.
