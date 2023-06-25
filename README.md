@@ -1,6 +1,6 @@
 # Starbound Rail Train System - Marey Graph generator Web App
 
-##-= How to use: coming soon! =-
+##How to use: coming soon!
 
 ---
 ###What is a Marey chart?
