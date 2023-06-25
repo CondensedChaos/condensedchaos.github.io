@@ -4,6 +4,7 @@
 
 ---
 #What is a Marey chart?
+
 A Marey chart is a [time-space diagram](https://en.wikipedia.org/wiki/Time%E2%80%93distance_diagram), a kind of [cartesian](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) [diagram](https://en.wikipedia.org/wiki/Diagram) used to analyze the flow of transportation system.
 Time is plotted on the x asis, usually drawn at the top and stations are plotted on the y-axis, proportionally spaced by the physical distance between each station.
 Each line on the chart represents a single train, with each point indicating its position on the tracks at a single point in time.
