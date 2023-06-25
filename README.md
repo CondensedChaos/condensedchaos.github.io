@@ -20,7 +20,8 @@ I reccomend watching this awesome [video](https://www.youtube.com/watch?v=NFLb1I
 If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqhypxEU) afterwards  made by dr. Kostas Tzanakakis, a more in depht, but stil beginner level, introduction to Marey graphs and trains timetables construction.
 
 
-##To learn more about diagrams:
+## To learn more about diagrams:
+
 [What is a Diagram](https://en.wikipedia.org/wiki/Diagram)
 [What is the Cartesian plan in simple terms?](https://www.mathsisfun.com/data/cartesian-coordinates.html)
 [Cartisian Coordinate System(Wikipedia)](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
