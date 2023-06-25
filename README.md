@@ -21,12 +21,13 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 
 
 ## To learn more about diagrams:
-
 [What is a Diagram](https://en.wikipedia.org/wiki/Diagram)
 [What is the Cartesian plan in simple terms?](https://www.mathsisfun.com/data/cartesian-coordinates.html)
 [Cartisian Coordinate System(Wikipedia)](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
 [How is a Time-Space Diagram used in trasportation](https://en.wikipedia.org/wiki/Time%E2%80%93distance_diagram)
+
 ---
+
 Made as a complement of: <a href="https://github.com/CondensedChaos/Starbound-Rail-Train">Starbound Rail Train Mod</a>
 But can be used as a Marey chart generator, just note that all times are expressed in seconds.
 Anyone can make a derivative work of this and turn it into a life-size Marey chart creator eventually.
