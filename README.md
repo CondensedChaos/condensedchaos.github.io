@@ -3,6 +3,10 @@
 ##-= How to use: coming soon! =-
 
 ---
+Made as a complement of: <a href="https://github.com/CondensedChaos/Starbound-Rail-Train">Starbound Rail Train Mod</a>
+But can be used as a Marey chart generator, all times are expressed in seconds but a derivative work can be done to use it as a life-size Marey chart creator
+
+---
 Made using [HighCharts](https://github.com/highcharts/highcharts) javascript library.
 As per Highcharts license any derivative work/fork has to repsect the following:
 1) The Highcharts watermark must remain.
