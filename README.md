@@ -28,15 +28,17 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 
 ---
 
+Made as a complement of: <a href="https://github.com/CondensedChaos/Starbound-Rail-Train">Starbound Rail Train Mod</a>
+But can be used as a Marey chart generator, just note that all times are expressed in seconds.
+Anyone can make a derivative work of this and turn it into a life-size Marey chart creator eventually.
+
+---
+
 ## How to use
 
 Work in progress!
 
----
 
-Made as a complement of: <a href="https://github.com/CondensedChaos/Starbound-Rail-Train">Starbound Rail Train Mod</a>
-But can be used as a Marey chart generator, just note that all times are expressed in seconds.
-Anyone can make a derivative work of this and turn it into a life-size Marey chart creator eventually.
 
 ---
 Made using [HighCharts](https://github.com/highcharts/highcharts) javascript library.
