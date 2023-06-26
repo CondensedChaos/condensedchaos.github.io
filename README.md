@@ -57,6 +57,10 @@ Work in progress!
 ---
 
 <div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/3275c4ac-84d4-4c2c-ad5d-1ac309e6dce5" alt="non.linear1" />
+</div>
+
+<div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/95469035-29e2-4ef7-8b78-58336cc0511f" alt="04" />
 </div>
 
