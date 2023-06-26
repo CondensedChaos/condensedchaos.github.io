@@ -40,6 +40,12 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 
 ---
 
+## To-do
+
+1) Possibility to select speed in recurrent trains creator
+2) Possibility to change colors of single trains through a color picker
+3) Possibility to add lines even when they do not share any station
+
 ## How to use
 
 Work in progress!
