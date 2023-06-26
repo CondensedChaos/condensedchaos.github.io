@@ -60,6 +60,13 @@ Work in progress!
 
 #### Non-circular lines
 
+They are rail lines that start in a point and end somewhere else, for trains going to east: trains will start from station 1 and end their ride at station 4, at the end of theri ride the trains will invert their direction, going from east to west and go back to station 1 on the same track.
+Conversely trains going from west to east will start at station 4 and end their ride at station 1, inverting their direction and going back east towards station 4.
+In both cases the loop will continue indefinitely.
+
+The same line can have both trains going to east and west simultaneosly.
+Think it like a railway with two parallel rails.
+
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/3275c4ac-84d4-4c2c-ad5d-1ac309e6dce5" alt="non-circular" />
 </div>
