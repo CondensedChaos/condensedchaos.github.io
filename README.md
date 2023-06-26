@@ -46,7 +46,7 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 2) Possibility to change colors of single trains through a color picker
 3) Possibility to add lines even when they do not share any station
 4) Possibility to change the names of stations individually (instead of Station 1..Station N)
-5) Light mode / dark mode : as of now only dark mode implemented as I can't stand looking at black text on a white background on a monitor for more than 5 minutes.... Sorry Light folks but Darth wins today...
+5) Light mode / Dark mode : as of now only dark mode implemented as I can't stand looking at black text on a white background on a monitor for more than 5 minutes.... Sorry Light folks but Darth wins today...
 
 ## How to use
 
