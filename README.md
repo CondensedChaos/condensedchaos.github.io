@@ -55,6 +55,14 @@ Work in progress!
 
 ---
 
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/95469035-29e2-4ef7-8b78-58336cc0511f" alt="04" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/260acd28-b71b-4472-8a7a-b64f26e8143b" alt="Case 1 - 1 Circular line sharing stations with a non-circular line" />
+</div>
+
 <div align="center"> <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/790fb59a-27e5-47b9-a912-3116227d01a8" alt="01" /> </div>
 
 <div align="center">
@@ -63,14 +71,6 @@ Work in progress!
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a7d169ef-8774-4bc0-b865-96a9c414902a" alt="03" />
-</div>
-
-<div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/95469035-29e2-4ef7-8b78-58336cc0511f" alt="04" />
-</div>
-
-<div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/260acd28-b71b-4472-8a7a-b64f26e8143b" alt="Case 1 - 1 Circular line sharing stations with a non-circular line" />
 </div>
 
 ---
