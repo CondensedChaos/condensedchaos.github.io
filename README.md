@@ -61,7 +61,7 @@ Work in progress!
 </div>
 
 <div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/3352f63b-2db9-40ca-90c0-f0b8ef29257b" alt="circular" />
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/9867bbe2-1da0-44ab-9756-be7a55b8d319" alt="circular" />
 </div>
 
 <div align="center">
