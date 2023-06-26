@@ -55,6 +55,8 @@ Work in progress!
 
 ---
 
+<center>
+
 ![01](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/790fb59a-27e5-47b9-a912-3116227d01a8)
 
 ![02](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/19e782cc-4fbe-4498-a042-d93ac5aca562)
@@ -65,7 +67,7 @@ Work in progress!
 
 ![Case 1 - 1 Circular line sharing stations with a non-circular line](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/260acd28-b71b-4472-8a7a-b64f26e8143b)
 
-
+</center>
 
 ---
 ## Credits
