@@ -45,6 +45,7 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 1) Possibility to select speed in recurrent trains creator
 2) Possibility to change colors of single trains through a color picker
 3) Possibility to add lines even when they do not share any station
+4) Possibility to change the names of stations individually (instead of Station 1..Station N)
 
 ## How to use
 
@@ -53,6 +54,16 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 Work in progress!
 
 ---
+
+![01](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/790fb59a-27e5-47b9-a912-3116227d01a8)
+
+![02](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/19e782cc-4fbe-4498-a042-d93ac5aca562)
+
+![03](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a7d169ef-8774-4bc0-b865-96a9c414902a)
+
+![04](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/95469035-29e2-4ef7-8b78-58336cc0511f)
+
+![Case 1 - 1 Circular line sharing stations with a non-circular line](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/260acd28-b71b-4472-8a7a-b64f26e8143b)
 
 
 
