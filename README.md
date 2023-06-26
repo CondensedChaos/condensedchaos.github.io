@@ -36,7 +36,7 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 
 [Historical Infographics: From Paris with Love](https://sandrarendgen.wordpress.com/2019/03/15/data-trails-from-paris-with-love/) (interesting article about Marey Charts and its history)
 
-["Stigler’s Law of Eponymy and Marey’s Train Schedule"](https://www.researchgate.net/publication/286085953_Visual_Revelations_Stigler%27s_Law_of_Eponymy_and_Marey%27s_Train_Schedule_Did_Serjev_Do_It_Before_Ibry_and_What_About_Jules_Petiet#pf1)  Howard Wainer, Polina Harik, and John Neter
+["Stigler’s Law of Eponymy and Marey’s Train Schedule"](https://www.researchgate.net/publication/286085953_Visual_Revelations_Stigler%27s_Law_of_Eponymy_and_Marey%27s_Train_Schedule_Did_Serjev_Do_It_Before_Ibry_and_What_About_Jules_Petiet#pf1)  Howard Wainer, Polina Harik, and John Neter - [Researchgate.net](https://www.researchgate.net/) (more about the history space-time diagram and trains scheduling)
 
 ---
 
