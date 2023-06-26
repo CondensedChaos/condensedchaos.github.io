@@ -56,15 +56,15 @@ Work in progress!
 
 ---
 
-#### Lines
+### Lines
 
-### Non-circular lines
+#### Non-circular lines
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/3275c4ac-84d4-4c2c-ad5d-1ac309e6dce5" alt="non-circular" />
 </div>
 
-### Circular lines
+#### Circular lines
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/9867bbe2-1da0-44ab-9756-be7a55b8d319" alt="circular" />
@@ -73,6 +73,8 @@ Work in progress!
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/95469035-29e2-4ef7-8b78-58336cc0511f" alt="04" />
 </div>
+
+#### More lines in a graph
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/260acd28-b71b-4472-8a7a-b64f26e8143b" alt="Case 1 - 1 Circular line sharing stations with a non-circular line" />
