@@ -75,9 +75,9 @@ The same line can have both trains going to east and west simultaneosly like a r
 They are rail lines that form a circular path, trains can start at any station and at the end of the ride the trains are back where they started without inverting their direction and will continue riding the rails keeping their original direction.
 In Starbuond it's a train line that circle an entire planet.
 
-The same line can have both trains going to east and west simultaneosly like a railway with two parallel rails.
 For example a train going towards east starting from station 1 will pass through station 2, 3 and 4 and then it will encounter station 1 again and will continue to go east without inverting their direction.
 Conversely a train going towards west starting from station 1 will pass through station 4, 3 and 2 and then it will encounter station 1 again and will continue to go west without inverting their direction.
+The same line can have both trains going to east and west simultaneosly like a railway with two parallel rails.
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/9867bbe2-1da0-44ab-9756-be7a55b8d319" alt="circular" />
