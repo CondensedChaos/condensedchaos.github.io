@@ -89,15 +89,23 @@ The same line can have both trains going to east and west simultaneosly like a r
 
 #### More lines in a graph
 
-##### Case 1
+##### Case 1a
+
+A circular line sharing a part of its path with one or more non-circular line, the non-circular line's stations are all shared with the circular line.
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/260acd28-b71b-4472-8a7a-b64f26e8143b" alt="Case 1 - 1 Circular line sharing stations with a non-circular line" />
 </div>
 
+##### Case 1b
+
+Two or more non-circular lines sharing parts of their paths, the smaller lines' stations are all shared with the bigger one's
+
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/55642e8a-9ca3-4982-b727-d40674a48904 alt="Case 1 - 1 Non-Circular line sharing stations with a non-circular line" />
 </div>
+
+##### Case 2 - 
 
 ---
 
