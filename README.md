@@ -61,7 +61,9 @@ Work in progress!
 #### Non-circular lines
 
 They are rail lines that start in a point and end somewhere else, for trains going to east: trains will start from station 1 (or any other subsequent station except station 4) and end their ride at station 4, at the end of theri ride the trains will invert their direction, going from east to west and go back to station 1 on the same track.
+
 Conversely trains going from west to east will start at station 4 (or any other previous station except station 1) and end their ride at station 1, inverting their direction and going back east towards station 4.
+
 In both cases the loop will continue indefinitely.
 
 The same line can have both trains going to east and west simultaneosly like a railway with two parallel rails.
@@ -76,7 +78,9 @@ They are rail lines that form a circular path, trains can start at any station a
 In Starbuond it's a train line that circle an entire planet.
 
 For example a train going towards east starting from station 1 will pass through station 2, 3 and 4 and then it will encounter station 1 again and will continue to go east without inverting their direction.
+
 Conversely a train going towards west starting from station 1 will pass through station 4, 3 and 2 and then it will encounter station 1 again and will continue to go west without inverting their direction.
+
 The same line can have both trains going to east and west simultaneosly like a railway with two parallel rails.
 
 <div align="center">
