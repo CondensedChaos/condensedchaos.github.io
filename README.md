@@ -87,10 +87,6 @@ The same line can have both trains going to east and west simultaneosly like a r
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/9867bbe2-1da0-44ab-9756-be7a55b8d319" alt="circular" />
 </div>
 
-<div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/95469035-29e2-4ef7-8b78-58336cc0511f" alt="04" />
-</div>
-
 #### More lines in a graph
 
 <div align="center">
