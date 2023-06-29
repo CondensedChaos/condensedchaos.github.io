@@ -105,7 +105,13 @@ Two or more non-circular lines sharing parts of their paths, the smaller lines' 
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/55642e8a-9ca3-4982-b727-d40674a48904 alt="Case 1 - 1 Non-Circular line sharing stations with a non-circular line" />
 </div>
 
-##### Case 2 - 
+##### Case 2a
+
+##### Case 2b
+
+##### Case 3a
+
+##### Case 3b
 
 ---
 
