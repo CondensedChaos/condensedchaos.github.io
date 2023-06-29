@@ -102,12 +102,20 @@ A circular line sharing a part of its path with one or more non-circular line, t
 Two or more non-circular lines sharing parts of their paths, the smaller lines' stations are all shared with the bigger one's
 
 <div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/55642e8a-9ca3-4982-b727-d40674a48904 alt="Case 1 - 1 Non-Circular line sharing stations with a non-circular line" />
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/55642e8a-9ca3-4982-b727-d40674a48904" alt="Case 1b" />
 </div>
 
 ##### Case 2a
 
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/d92950a1-395a-4065-ab50-f6ce869f9d52" alt="Case 2a" />
+</div>
+
 ##### Case 2b
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/6d21895c-e57a-493e-90ce-c684ec6487c6" alt="Case 2b" />
+</div>
 
 ##### Case 3a
 
