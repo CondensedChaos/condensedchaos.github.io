@@ -60,18 +60,24 @@ Work in progress!
 
 #### Non-circular lines
 
-They are rail lines that start in a point and end somewhere else, for trains going to east: trains will start from station 1 and end their ride at station 4, at the end of theri ride the trains will invert their direction, going from east to west and go back to station 1 on the same track.
-Conversely trains going from west to east will start at station 4 and end their ride at station 1, inverting their direction and going back east towards station 4.
+They are rail lines that start in a point and end somewhere else, for trains going to east: trains will start from station 1 (or any other subsequent station except station 4) and end their ride at station 4, at the end of theri ride the trains will invert their direction, going from east to west and go back to station 1 on the same track.
+Conversely trains going from west to east will start at station 4 (or any other previous station except station 1) and end their ride at station 1, inverting their direction and going back east towards station 4.
 In both cases the loop will continue indefinitely.
 
-The same line can have both trains going to east and west simultaneosly.
-Think it like a railway with two parallel rails.
+The same line can have both trains going to east and west simultaneosly like a railway with two parallel rails.
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/3275c4ac-84d4-4c2c-ad5d-1ac309e6dce5" alt="non-circular" />
 </div>
 
 #### Circular lines
+
+They are rail lines that form a circular path, trains can start at any station and at the end of the ride the trains are back where they started without inverting their direction and will continue riding the rails keeping their original direction.
+In Starbuond it's a train line that circle an entire planet.
+
+The same line can have both trains going to east and west simultaneosly like a railway with two parallel rails.
+For example a train going towards east starting from station 1 will pass through station 2, 3 and 4 and then it will encounter station 1 again and will continue to go east without inverting their direction.
+Conversely a train going towards west starting from station 1 will pass through station 4, 3 and 2 and then it will encounter station 1 again and will continue to go west without inverting their direction.
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/9867bbe2-1da0-44ab-9756-be7a55b8d319" alt="circular" />
