@@ -89,6 +89,9 @@ The same line can have both trains going to east and west simultaneosly like a r
 
 #### More lines in a graph
 
+More lines can share parts of their track and you can use this app to visualize their time-space diagram.
+Below are all the use-cases:
+
 ##### Case 1a
 
 A circular line sharing a part of its path with one or more non-circular line, the non-circular line's stations are all shared with the circular line.
@@ -107,11 +110,15 @@ Two or more non-circular lines sharing parts of their paths, the smaller lines' 
 
 ##### Case 2a
 
+A circular line sharing some of its station with a non-circular line. The non-circular line's tracks it's the same as the circular line's although some of the stations are not shared.
+
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/d92950a1-395a-4065-ab50-f6ce869f9d52" alt="Case 2a" />
 </div>
 
 ##### Case 2b
+
+Two non-circular line sharing some stations, one line starts where the other line ends.
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/6d21895c-e57a-493e-90ce-c684ec6487c6" alt="Case 2b" />
