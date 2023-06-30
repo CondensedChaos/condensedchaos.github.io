@@ -28,7 +28,7 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 #### To learn more about diagrams:
 [What is a Diagram](https://en.wikipedia.org/wiki/Diagram)
 
-[What is the Cartesian plan in simple terms?](https://www.mathsisfun.com/data/cartesian-coordinates.html)
+[What is the Cartesian plane in simple terms?](https://www.mathsisfun.com/data/cartesian-coordinates.html)
 
 [Cartisian Coordinate System(Wikipedia)](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
 
