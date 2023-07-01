@@ -101,6 +101,10 @@ So for example if we want to create a graph for the two lines of the following s
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/81b1ebd9-dc88-4393-bcab-af513ab18694" alt="11" />
 </div>
 
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/5d4fcec4-73aa-4deb-8f25-69606f0da575" alt="11" />
+</div>
+
 ---
 
 ### Lines
