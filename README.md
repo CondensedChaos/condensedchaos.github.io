@@ -61,6 +61,10 @@ Work in progress!
 </div>
 
 <div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/e94b8a13-0478-4af5-8a2b-e4a5c7b226be" alt="06" />
+</div>
+
+<div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/19e782cc-4fbe-4498-a042-d93ac5aca562" alt="02" />
 </div>
 
@@ -72,9 +76,7 @@ Work in progress!
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/f4f77e19-8513-4d06-a521-3ea3dc88c991" alt="07" />
 </div>
 
-<div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/e94b8a13-0478-4af5-8a2b-e4a5c7b226be" alt="06" />
-</div>
+
 
 So for example if we want to create a graph for the two lines of the following scenario:
 
