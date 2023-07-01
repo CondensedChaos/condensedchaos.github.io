@@ -83,7 +83,7 @@ So for example if we want to create a graph for the two lines of the following s
 </div>
 
 <div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/f4f77e19-8513-4d06-a521-3ea3dc88c991" alt="08" />
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/cbb53a95-761f-4ad9-b06a-67d1be9908c4" alt="08" />
 </div>
 
 
