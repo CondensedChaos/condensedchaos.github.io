@@ -167,11 +167,11 @@ Let's say we have to make a graph starting from these data:
 </div>
 
 <div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/b0ee80ad-598a-401d-84fa-40fbb96db91b" alt="26" />
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/f62561f6-6064-4202-ae65-7ae267d2b238" alt="27" />
 </div>
 
 <div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/f62561f6-6064-4202-ae65-7ae267d2b238" alt="27" />
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/b0ee80ad-598a-401d-84fa-40fbb96db91b" alt="26" />
 </div>
 
 <div align="center">
