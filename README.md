@@ -127,6 +127,10 @@ Let's say we have to make a graph starting from these data:
 
 
 <div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/26ad2cab-ab68-4a4a-ace5-eaeeabb97999" alt="22" />
+</div>
+
+<div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a0d03572-f668-4f0d-bbc6-e121e50f9caa" alt="17" />
 </div>
 
@@ -148,10 +152,6 @@ Let's say we have to make a graph starting from these data:
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a5d45bfb-8e75-46e2-9eb0-6a4da775ebd1" alt="21" />
-</div>
-
-<div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/26ad2cab-ab68-4a4a-ace5-eaeeabb97999" alt="22" />
 </div>
 
 <div align="center">
