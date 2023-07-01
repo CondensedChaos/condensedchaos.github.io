@@ -45,9 +45,10 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 1) Possibility to select speed in recurrent trains creator
 2) Possibility to change colors of single trains through a color picker
 3) Implementing a dialog to change speeds and stops time for all (or some) trains at once
-4) Possibility to add lines even when they do not share any station
-5) Possibility to change the names of stations individually (instead of Station 1..Station N)
-6) Light mode / Dark mode : as of now only dark mode implemented as I can't stand looking at black text on a white background on a monitor for more than 5 minutes.... Sorry Light folks but Darth wins today...
+4) POssibility to make the recurring trains start from a station different than staion 1
+5) Possibility to add lines even when they do not share any station
+6) Possibility to change the names of stations individually (instead of Station 1..Station N)
+7) Light mode / Dark mode : as of now only dark mode implemented as I can't stand looking at black text on a white background on a monitor for more than 5 minutes.... Sorry Light folks but Darth wins today...
 
 ---
 
