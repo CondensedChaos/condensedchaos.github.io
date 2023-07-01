@@ -44,29 +44,10 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 
 1) Possibility to select speed in recurrent trains creator
 2) Possibility to change colors of single trains through a color picker
-3) Possibility to add lines even when they do not share any station
-4) Possibility to change the names of stations individually (instead of Station 1..Station N)
-5) Light mode / Dark mode : as of now only dark mode implemented as I can't stand looking at black text on a white background on a monitor for more than 5 minutes.... Sorry Light folks but Darth wins today...
-
-## How to use
-
----
-
-Work in progress!
-
-<div align="center"> <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/790fb59a-27e5-47b9-a912-3116227d01a8" alt="01" /> </div>
-
-<div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a7d169ef-8774-4bc0-b865-96a9c414902a" alt="03" />
-</div>
-
-<div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/70aabb4c-9124-4dc6-aa95-555431f7b42b" alt="05" />
-</div>
-
-<div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/e94b8a13-0478-4af5-8a2b-e4a5c7b226be" alt="06" />
-</div>
+3) Implementing a dialog to change speeds and stops time for all (or some) trains at once
+4) Possibility to add lines even when they do not share any station
+5) Possibility to change the names of stations individually (instead of Station 1..Station N)
+6) Light mode / Dark mode : as of now only dark mode implemented as I can't stand looking at black text on a white background on a monitor for more than 5 minutes.... Sorry Light folks but Darth wins today...
 
 ---
 
@@ -100,6 +81,35 @@ The same line can have both trains going to east and west simultaneosly like a r
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/9867bbe2-1da0-44ab-9756-be7a55b8d319" alt="circular" />
 </div>
+
+## How to use
+
+---
+
+Work in progress!
+
+<div align="center"> <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/790fb59a-27e5-47b9-a912-3116227d01a8" alt="01" /> </div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a7d169ef-8774-4bc0-b865-96a9c414902a" alt="03" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/70aabb4c-9124-4dc6-aa95-555431f7b42b" alt="05" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/e94b8a13-0478-4af5-8a2b-e4a5c7b226be" alt="06" />
+</div>
+
+Let's say we have to make a graph starting from these data:
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/f8355a3a-9e1b-4cce-ac42-f7306e5c5322" alt="19-testrundata" />
+</div>
+
+
+---
 
 #### More lines in a graph
 
