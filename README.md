@@ -109,6 +109,78 @@ Let's say we have to make a graph starting from these data:
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/f8355a3a-9e1b-4cce-ac42-f7306e5c5322" alt="19-testrundata" />
 </div>
 
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/cd007e24-58eb-4b64-b379-e52753917eb7" alt="13" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/70ee685b-a264-4f83-9062-2359abae7901" alt="14" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/13307662-f17e-4f5f-8f4d-41fb4ca85acc" alt="15" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/26f533d8-e2ed-421f-bce0-07e8cebde5f4" alt="16" />
+</div>
+
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a0d03572-f668-4f0d-bbc6-e121e50f9caa" alt="17" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/f9206f35-33cb-4c8b-a4a2-180996aa84b9" alt="17a" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/24c31180-bea9-4b30-84f9-67533a41f2ba" alt="18" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/d637ef37-6f2f-4315-90ae-fa74f10276ae" alt="19" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/c691f4cf-ee6e-4c5d-bd84-6094a7bbfb18" alt="20" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a5d45bfb-8e75-46e2-9eb0-6a4da775ebd1" alt="21" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/26ad2cab-ab68-4a4a-ace5-eaeeabb97999" alt="22" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/da5dcd95-62af-46ed-a7d3-e381a36dbcd2" alt="23" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/cce361e1-7f33-4414-a3cf-7b559beba9cc" alt="24" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/51538e34-bfbe-4cbf-9253-77895a1a8e12" alt="25" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/b0ee80ad-598a-401d-84fa-40fbb96db91b" alt="26" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/f62561f6-6064-4202-ae65-7ae267d2b238" alt="27" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/172be021-2a76-490e-a1b9-ab0f9fe86c3d" alt="28" />
+</div>
+
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/54190ade-7df6-49ec-a500-6b62a209de13" alt="29" />
+</div>
 
 ---
 
