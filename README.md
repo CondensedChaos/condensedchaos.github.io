@@ -61,14 +61,12 @@ Work in progress!
 </div>
 
 <div align="center">
-<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/e94b8a13-0478-4af5-8a2b-e4a5c7b226be" alt="06" />
-</div>
-
-
-<div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/70aabb4c-9124-4dc6-aa95-555431f7b42b" alt="05" />
 </div>
 
+<div align="center">
+<img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/e94b8a13-0478-4af5-8a2b-e4a5c7b226be" alt="06" />
+</div>
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/19e782cc-4fbe-4498-a042-d93ac5aca562" alt="02" />
