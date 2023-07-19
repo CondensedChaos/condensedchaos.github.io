@@ -124,7 +124,7 @@ Let's say we have to make a graph starting from these data:
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/70ee685b-a264-4f83-9062-2359abae7901" alt="14" />
 </div>
 
-The arrows in the upper-left and upper-right corner open a pop-up menu that allows you to modify, respectively, the eastbound and westbound trains parameters.
+The arrows in the upper-left and upper-right corner open a pop-up menu that allows you to modify, respectively, the eastbound and westbound trains parameters:
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/13307662-f17e-4f5f-8f4d-41fb4ca85acc" alt="15" />
 </div>
@@ -153,10 +153,12 @@ So for example you could go with one train every 30 seconds and you'll see you'l
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/24c31180-bea9-4b30-84f9-67533a41f2ba" alt="18" />
 </div>
 
+And this is the generated graph:
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/d637ef37-6f2f-4315-90ae-fa74f10276ae" alt="19" />
 </div>
 
+By changing number of iteration you can see the evolution in time of how the trains will go:
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/c691f4cf-ee6e-4c5d-bd84-6094a7bbfb18" alt="20" />
 </div>
@@ -165,6 +167,7 @@ So for example you could go with one train every 30 seconds and you'll see you'l
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a5d45bfb-8e75-46e2-9eb0-6a4da775ebd1" alt="21" />
 </div>
 
+If you wish you could tweak parameters of each train to better suit your needs, just be aware that everey change has its repercussions on the long run and increase the number of iterations to see how it'll go, you can hide some trains from the view by clicking in their name in the legend just below the graph and by moving the mouse pointer on the graph you'll see the time of every train at every station, by using the mouse whell you can zoom in and zoom out and by dragging the mouse pointer on the graph while clicking the left mouse button you are able to move the zoomed in view.
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/da5dcd95-62af-46ed-a7d3-e381a36dbcd2" alt="23" />
 </div>
