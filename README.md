@@ -25,7 +25,7 @@ watching this same video sparked the inspiration in me to build this mod and web
 
 If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqhypxEU) afterwards  made by dr. [Kostas Tzanakakis](https://www.researchgate.net/profile/Konstantinos-Tzanakakis), a more in depht, but stil beginner level, introduction to Marey graphs and trains timetables construction.
 
-#### To learn more about diagrams:
+### To learn more about diagrams:
 [What is a Diagram](https://en.wikipedia.org/wiki/Diagram)
 
 [What is the Cartesian plane in simple terms?](https://www.mathsisfun.com/data/cartesian-coordinates.html)
@@ -49,6 +49,15 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 5) Possibility to add lines even when they do not share any station
 6) Possibility to change the names of stations individually (instead of Station 1..Station N)
 7) Light mode / Dark mode : as of now only dark mode implemented as I can't stand looking at black text on a white background on a monitor for more than 5 minutes.... Sorry Light folks but Darth wins today...
+
+---
+
+## A note from the author
+I made this web-app for the simple purpose of having a companion app for my [Rail Train System for Starbound](https://github.com/CondensedChaos/Starbound-Rail-Train) mod.  
+I am not a web-developer of any sort, I'm just a self-taught computer enthusiast who enjoys doing things for myself.  
+I am aware that this web-app does not employ the best coding good practices and that it would need a good deal of optimizations but it does it job.  
+My main focus was on the actual Starbound mod, if anybody wants to fork this project and make it something better, feel free to do so, just respect the project's [license](https://github.com/CondensedChaos/condensedchaos.github.io/tree/main#license).  
+While this web-app was made to have a system to do scheduling of trains using Marey Charts for a Starbound mod, where running times are in the scale of minutes, it could be used for real life scenarios, with some adaptations.  
 
 ---
 
