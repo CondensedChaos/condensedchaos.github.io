@@ -196,6 +196,8 @@ If you wish you could tweak parameters of each train to better suit your needs, 
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/54190ade-7df6-49ec-a500-6b62a209de13" alt="29" />
 </div>
 
+If you're not satisfied you could start over by changing the parameters in the "add recurring trains" tab.
+
 ---
 
 #### More lines in a graph
