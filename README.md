@@ -96,8 +96,6 @@ The same line can have both trains going to east and west simultaneosly like a r
 
 ---
 
-Work in progress!
-
 <div align="center"> <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/790fb59a-27e5-47b9-a912-3116227d01a8" alt="01" /> </div>
 
 <div align="center">
@@ -126,10 +124,12 @@ Let's say we have to make a graph starting from these data:
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/70ee685b-a264-4f83-9062-2359abae7901" alt="14" />
 </div>
 
+The arrows in the upper-left and upper-right corner open a pop-up menu that allows you to modify, respectively, the eastbound and westbound trains parameters.
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/13307662-f17e-4f5f-8f4d-41fb4ca85acc" alt="15" />
 </div>
 
+Train 1-E-A : meaning eastbound train number 1 of Line A.
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/26f533d8-e2ed-421f-bce0-07e8cebde5f4" alt="16" />
 </div>
@@ -139,6 +139,7 @@ Let's say we have to make a graph starting from these data:
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/26ad2cab-ab68-4a4a-ace5-eaeeabb97999" alt="22" />
 </div>
 
+The main tool you should use to plan your schedule is the "Add recurring trains" tab, by moving the sliders you will see in real time the number of trains you'll need:
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/a0d03572-f668-4f0d-bbc6-e121e50f9caa" alt="17" />
 </div>
@@ -147,6 +148,7 @@ Let's say we have to make a graph starting from these data:
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/f9206f35-33cb-4c8b-a4a2-180996aa84b9" alt="17a" />
 </div>
 
+So for example you could go with one train every 30 seconds and you'll see you'll need a total for 10 trains (5 eastbound and 5 westbound trains)
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/24c31180-bea9-4b30-84f9-67533a41f2ba" alt="18" />
 </div>
