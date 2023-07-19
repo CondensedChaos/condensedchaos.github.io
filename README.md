@@ -203,12 +203,12 @@ If you're not satisfied you could start over by changing the parameters in the "
 
 ---
 
-#### More lines in a graph
+### More lines in a graph
 
 More lines can share parts of their track and you can use this app to visualize their time-space diagram.
 Below are all the use-cases:
 
-##### Case 1a
+#### Case 1a
 
 A circular line sharing a part of its path with one or more non-circular line, the non-circular line's stations are all shared with the circular line.
 
@@ -216,7 +216,7 @@ A circular line sharing a part of its path with one or more non-circular line, t
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/260acd28-b71b-4472-8a7a-b64f26e8143b" alt="Case 1 - 1 Circular line sharing stations with a non-circular line" />
 </div>
 
-##### Case 1b
+#### Case 1b
 
 Two or more non-circular lines sharing parts of their paths, the smaller lines' stations are all shared with the bigger one's
 
@@ -224,7 +224,7 @@ Two or more non-circular lines sharing parts of their paths, the smaller lines' 
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/55642e8a-9ca3-4982-b727-d40674a48904" alt="Case 1b" />
 </div>
 
-##### Case 2a
+#### Case 2a
 
 A circular line sharing some of its station with a non-circular line. The non-circular line's tracks it's the same as the circular line's although some of the stations are not shared.
 
@@ -232,7 +232,7 @@ A circular line sharing some of its station with a non-circular line. The non-ci
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/d92950a1-395a-4065-ab50-f6ce869f9d52" alt="Case 2a" />
 </div>
 
-##### Case 2b
+#### Case 2b
 
 Two non-circular line sharing some stations, one line starts where the other line ends.
 
@@ -240,18 +240,19 @@ Two non-circular line sharing some stations, one line starts where the other lin
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/6d21895c-e57a-493e-90ce-c684ec6487c6" alt="Case 2b" />
 </div>
 
-##### Case 3a
+#### Case 3a
 
 To be implemented:  
 ![case3a](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/b2bf9fc0-2fc5-46a6-b334-202ffa2c120b)
 
-##### Case 3b
+#### Case 3b
 
 To be implemented:
 ![case3b](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/4c86e6ae-3e19-4cb3-9809-3f614f80886d)
 
 ---
 
+### More lines in a graph: usage and examples
 
 <div align="center">
 <img src="https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/19e782cc-4fbe-4498-a042-d93ac5aca562" alt="02" />
