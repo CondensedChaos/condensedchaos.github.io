@@ -239,7 +239,13 @@ Two non-circular line sharing some stations, one line starts where the other lin
 
 ##### Case 3a
 
+To be implemented:  
+![case3a](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/b2bf9fc0-2fc5-46a6-b334-202ffa2c120b)
+
 ##### Case 3b
+
+To be implemented:
+![case3b](https://github.com/CondensedChaos/condensedchaos.github.io/assets/121590835/4c86e6ae-3e19-4cb3-9809-3f614f80886d)
 
 ---
 
