@@ -54,9 +54,12 @@ If you wanna know more watch this [video](https://www.youtube.com/watch?v=EWVRqh
 
 ## A note from the author
 I made this web-app for the simple purpose of having a companion app for my [Rail Train System for Starbound](https://github.com/CondensedChaos/Starbound-Rail-Train) mod.  
+
 I am not a web-developer of any sort, I'm just a self-taught computer enthusiast who enjoys doing things for myself.  
 I am aware that this web-app does not employ the best coding good practices and that it would need a good deal of optimizations but it does it job.  
+
 My main focus was on the actual Starbound mod, if anybody wants to fork this project and make it something better, feel free to do so, just respect the project's [license](https://github.com/CondensedChaos/condensedchaos.github.io/tree/main#license).  
+
 While this web-app was made to have a system to do scheduling of trains using Marey Charts for a Starbound mod, where running times are in the scale of minutes, it could be used for real life scenarios, with some adaptations.  
 
 ---
